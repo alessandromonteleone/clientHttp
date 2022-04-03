@@ -49,10 +49,6 @@ public class GetZonesProcess {
                 System.out.println("---------GET ZONES LIST ----------");
                 logger.info("Response Code: {}", response.getStatusLine().getStatusCode());
                 logger.info("Raw Response Body: {}", bodyString);
-                //Deserialize Json String and Log obtained locations
-                //Define Custom List Type
-                 //LocationDescriptor locationDescriptor = this.objectMapper.readValue(bodyString, LocationDescriptor.class);
-                //logger.info("Location Descriptor for Id: {} -> {}", locationId, locationDescriptor);
             }
             else {
                 logger.error(String.format("Error executing the request ! Status Code: %d", response != null ? response.getStatusLine().getStatusCode() : -1));
@@ -84,11 +80,6 @@ public class GetZonesProcess {
 
                 logger.info("Response Code: {}", response.getStatusLine().getStatusCode());
                 logger.info("Raw Response Body: {}", bodyString);
-
-                //Deserialize Json String and Log obtained locations
-                //Define Custom List Type
-                //LocationDescriptor locationDescriptor = this.objectMapper.readValue(bodyString, LocationDescriptor.class);
-                //logger.info("Location Descriptor for Id: {} -> {}", locationId, locationDescriptor);
 
             }
             else {
@@ -124,10 +115,6 @@ public class GetZonesProcess {
                 logger.info("Response Code: {}", response.getStatusLine().getStatusCode());
                 logger.info("Raw Response Body: {}", bodyString);
 
-                //Deserialize Json String and Log obtained locations
-                //Define Custom List Type
-                //LocationDescriptor locationDescriptor = this.objectMapper.readValue(bodyString, LocationDescriptor.class);
-                //logger.info("Location Descriptor for Id: {} -> {}", locationId, locationDescriptor);
 
             }
             else {
@@ -162,11 +149,6 @@ public class GetZonesProcess {
 
                 logger.info("Response Code: {}", response.getStatusLine().getStatusCode());
                 logger.info("Raw Response Body: {}", bodyString);
-
-                //Deserialize Json String and Log obtained locations
-                //Define Custom List Type
-                //LocationDescriptor locationDescriptor = this.objectMapper.readValue(bodyString, LocationDescriptor.class);
-                //logger.info("Location Descriptor for Id: {} -> {}", locationId, locationDescriptor);
 
             }
             else {
