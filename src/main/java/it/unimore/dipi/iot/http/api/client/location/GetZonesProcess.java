@@ -181,30 +181,30 @@ public class GetZonesProcess {
 
             GetZonesProcess apiLocationProcess = new GetZonesProcess(baseUrl);
             switch (s) {
-                case "1":
+                case "1":  // lista zone con info
                     System.out.println("--------- GET ZONES LIST ----------");
                     apiLocationProcess.getZonesList();
                     break;
-                case "2":
+                case "2": // info di una zona specificata
                     System.out.println("ZoneId (zone01, zone02, zone03, zone04 ) : ");
                     tastiera = new Scanner(System.in);
                     zoneId = tastiera.nextLine();
                     System.out.printf("--------- GET %s INFO ----------\n", zoneId);
                     apiLocationProcess.getZone(zoneId);
                     break;
-                case "3":
+                case "3": // lista con info degli accessPoint in una zona specificata
                     System.out.println("ZoneId (zone01, zone02, zone03, zone04 ): ");
                     tastiera = new Scanner(System.in);
                     zoneId = tastiera.nextLine();
                     System.out.printf("--------- GET %s INFO ----------\n", zoneId);
                     apiLocationProcess.getZoneAccessPointList(zoneId);
                     break;
-                case "4":
+                case "4": // info di un accessPoint specificato in una zona specificata
                     System.out.println("ZoneId (zone01, zone02, zone03, zone04 ): ");
-                    tastiera = new Scanner(System.in);
+                    tastiera = new Scanner(System.in);  //es: zone01
                     zoneId= tastiera.nextLine();
                     System.out.println("Access point id: ");
-                    tastiera = new Scanner(System.in);
+                    tastiera = new Scanner(System.in);  //es: wifi-ap-2
                     String accessPointId = tastiera.nextLine();
                     System.out.printf("--------- GET %s ACCESS POINT %s INFO ----------\n", zoneId,accessPointId);
                     apiLocationProcess.getZoneAccessPoint(zoneId,accessPointId);
