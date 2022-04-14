@@ -106,14 +106,17 @@ public class CreateSubscriptionsAreaCircleProcess {
         circleNotificationSubscription.setClientCorrelator("1234");
         circleNotificationSubscription.setCallbackReference(callbackReference);
         List<String> address = new ArrayList<>();
+        address.add("10.100.0.1");
+        address.add("10.100.0.2");
+        address.add("10.100.0.3");
         address.add("10.100.0.4");
         circleNotificationSubscription.setAddress(address);
         circleNotificationSubscription.setCheckImmediate(true);
-        circleNotificationSubscription.setEnteringLeavingCriteria("Entering");
+        circleNotificationSubscription.setEnteringLeavingCriteria("Entering"); //Entering Leaving
         circleNotificationSubscription.setFrequency(1);
-        circleNotificationSubscription.setLatitude(7.437573);
-        circleNotificationSubscription.setLongitude(43.748993);
-        circleNotificationSubscription.setRadius(200);
+        circleNotificationSubscription.setLatitude(7.421573);
+        circleNotificationSubscription.setLongitude(43.736993);
+        circleNotificationSubscription.setRadius(100);
         circleNotificationSubscription.setTrackingAccuracy(10);
 
         AreaCircleDescriptor areaCircleDescriptor = new AreaCircleDescriptor();
