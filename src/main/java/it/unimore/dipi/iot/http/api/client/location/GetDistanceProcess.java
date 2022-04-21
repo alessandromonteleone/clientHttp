@@ -2,6 +2,9 @@ package it.unimore.dipi.iot.http.api.client.location;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
+import it.unimore.dipi.iot.http.api.client.location.model.response.GetDistanceResponseDescriptor;
+import it.unimore.dipi.iot.http.api.client.location.model.response.TerminalDistance;
+import it.unimore.dipi.iot.http.api.client.location.model.response.TimeStamp;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -63,8 +66,27 @@ public class GetDistanceProcess {
                 logger.info("Response Code: {}", response.getStatusLine().getStatusCode());
                 logger.info("Raw Response Body: {}", bodyString);
 
-                //Deserialize Json String and Log obtained locations
-                //Define Custom List Type
+
+                //Deserialize Json String and Log obtained getDistanceResponseDescriptor
+                GetDistanceResponseDescriptor getDistanceResponseDescriptor = this.objectMapper.readValue(bodyString, GetDistanceResponseDescriptor.class);
+                TerminalDistance terminalDistance = getDistanceResponseDescriptor.getTerminalDistance();
+
+                //test response info
+                logger.info("Testing response info...");
+                System.out.print("Distance: "+ terminalDistance.getDistance() + " meters\n" );
+                TimeStamp timeStamp = terminalDistance.getTimestamp();
+                System.out.println("Nanoseconds: "+ timeStamp.getNanoSeconds());
+                System.out.println("Seconds: "+ timeStamp.getSeconds());
+
+                //{
+                //  "terminalDistance": {
+                //    "distance": 310979,
+                //    "timestamp": {
+                //      "nanoSeconds": 0,
+                //      "seconds": 1650483557
+                //    }
+                //  }
+                //}
 
             } else {
                 logger.error(String.format("Error executing the request ! Status Code: %d -> Response Body: %s",
@@ -110,9 +132,25 @@ public class GetDistanceProcess {
                 logger.info("Response Code: {}", response.getStatusLine().getStatusCode());
                 logger.info("Raw Response Body: {}", bodyString);
 
-                //Deserialize Json String and Log obtained locations
-                //Define Custom List Type
+                //Deserialize Json String and obtained getDistanceResponseDescriptor
+                GetDistanceResponseDescriptor getDistanceResponseDescriptor = this.objectMapper.readValue(bodyString, GetDistanceResponseDescriptor.class);
+                TerminalDistance terminalDistance = getDistanceResponseDescriptor.getTerminalDistance();
 
+                // test response info ...
+                logger.info("Testing response info...");
+                System.out.print("Distance: "+ terminalDistance.getDistance() + " meters\n" );
+                TimeStamp timeStamp = terminalDistance.getTimestamp();
+                System.out.println("Nanoseconds: "+ timeStamp.getNanoSeconds());
+                System.out.println("Seconds: "+ timeStamp.getSeconds());
+                //{
+                //  "terminalDistance": {
+                //    "distance": 310979,
+                //    "timestamp": {
+                //      "nanoSeconds": 0,
+                //      "seconds": 1650483557
+                //    }
+                //  }
+                //}
             } else {
                 logger.error(String.format("Error executing the request ! Status Code: %d -> Response Body: %s",
                         response != null ? response.getStatusLine().getStatusCode() : -1,
@@ -150,6 +188,7 @@ public class GetDistanceProcess {
             if (s.equals("1")) {
                 System.out.printf("\u001B[35m" + "--------- GET UE %s - %s DISTANCE -------- \n" + "\u001B[0m", address.get(0), address.get(1));
                 apiLocationProcess.getUeDistance(address);
+
             }
             if (s.equals("2")) {
                 System.out.printf("\u001B[34m" + "--------- GET UE %s DISTANCE  FROM POSITION lat:%s long:%s  -------- \n" + "\u001B[0m",

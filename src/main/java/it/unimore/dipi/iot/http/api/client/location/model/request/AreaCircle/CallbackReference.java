@@ -1,4 +1,4 @@
-package it.unimore.dipi.iot.http.api.client.location.model.AreaCircle;
+package it.unimore.dipi.iot.http.api.client.location.model.request.AreaCircle;
 
 public class CallbackReference {
     private String callbackData;

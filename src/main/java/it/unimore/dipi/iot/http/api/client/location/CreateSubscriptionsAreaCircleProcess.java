@@ -1,9 +1,9 @@
 package it.unimore.dipi.iot.http.api.client.location;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import it.unimore.dipi.iot.http.api.client.location.model.AreaCircle.AreaCircleDescriptor;
-import it.unimore.dipi.iot.http.api.client.location.model.AreaCircle.CallbackReference;
-import it.unimore.dipi.iot.http.api.client.location.model.AreaCircle.CircleNotificationSubscription;
+import it.unimore.dipi.iot.http.api.client.location.model.request.AreaCircle.AreaCircleDescriptor;
+import it.unimore.dipi.iot.http.api.client.location.model.request.AreaCircle.CallbackReference;
+import it.unimore.dipi.iot.http.api.client.location.model.request.AreaCircle.CircleNotificationSubscription;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;

@@ -1,6 +1,5 @@
-package it.unimore.dipi.iot.http.api.client.location.model.AreaCircle;
-import java.util.HashMap;
-import java.util.Map;
+package it.unimore.dipi.iot.http.api.client.location.model.request.AreaCircle;
+
 public class AreaCircleDescriptor {
 
     private CircleNotificationSubscription circleNotificationSubscription;

@@ -1,6 +1,7 @@
 package it.unimore.dipi.iot.http.api.client.location;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import it.unimore.dipi.iot.http.api.client.location.model.response.*;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -14,6 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import java.net.http.HttpClient;
 import java.util.ArrayList;
+import java.util.List;
 
 public class GetUsersProcess {
     final static protected Logger logger = LoggerFactory.getLogger(GetDistanceProcess.class);
@@ -71,8 +73,43 @@ public class GetUsersProcess {
                 logger.info("Response Code: {}", response.getStatusLine().getStatusCode());
                 logger.info("Raw Response Body: {}", bodyString);
 
-                //Deserialize Json String and Log obtained locations
-                //Define Custom List Type
+                //Deserialize Json String and obtained
+
+                GetUsersResponseDescriptor getUsersResponseDescriptor = this.objectMapper.readValue
+                        (bodyString, GetUsersResponseDescriptor.class);
+
+                // // test response info ...
+                logger.info("Testing response info...");
+                UserList userList = getUsersResponseDescriptor.getUserList();
+                System.out.println("ResourceURL:" + userList.getResourceURL());
+
+                if(userList.getUser() != null) {
+                List<User> user = userList.getUser();
+                int i = 0;
+                    for (User u : user) {
+                        i=i+1;
+                        System.out.println("\u001B[32m"+"User number "+"\u001B[0m"+i);
+                        System.out.println("AccessPointId: " + u.getAccessPointId());
+                        System.out.println("Address: " + u.getAddress());
+                        LocationInfo locationInfo = u.getLocationInfo();
+                        for (double lat : locationInfo.getLatitude()) {
+                            System.out.println("Latitudine: " + lat);
+                        }
+                        for (double lon : locationInfo.getLongitude()) {
+                            System.out.println("Longitudine: " + lon);
+                        }
+                        System.out.println("Shape: " + locationInfo.getShape());
+                        TimeStamp timeStamp = locationInfo.getTimestamp();
+                        System.out.println("Nanoseconds: " + timeStamp.getNanoSeconds());
+                        System.out.println("Seconds: " + timeStamp.getSeconds());
+                        System.out.println("ResourceURL: " + u.getResourceURL());
+                        TimeStamp timeStampUserList = u.getTimestamp();
+                        System.out.println("Nanoseconds: " + timeStampUserList.getNanoSeconds());
+                        System.out.println("Seconds: " + timeStamp.getSeconds());
+                        System.out.println("ZoneId: " + u.getZoneId());
+                    }
+                }
+
 
             } else {
                 logger.error(String.format("Error executing the request ! Status Code: %d -> Response Body: %s",
@@ -93,11 +130,11 @@ public class GetUsersProcess {
         GetUsersProcess apiLocationProcess = new GetUsersProcess(baseUrl);
 
         ArrayList<String> zoneId = new ArrayList<>() {{
-            add("zone03");
+            add("zone04");
         }};
 
         ArrayList<String> accessPointId = new ArrayList<>() {{
-            add("4g-macro-cell-6");
+            //add("4g-macro-cell-6");
             //add("wifi-ap-6");
         }};
 

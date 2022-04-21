@@ -1,4 +1,4 @@
-package it.unimore.dipi.iot.http.api.client.location.model.AreaCircle;
+package it.unimore.dipi.iot.http.api.client.location.model.request.AreaCircle;
 
 import java.util.ArrayList;
 import java.util.List;
