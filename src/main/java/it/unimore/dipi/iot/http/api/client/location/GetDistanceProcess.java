@@ -33,7 +33,7 @@ public class GetDistanceProcess {
         this.objectMapper = new ObjectMapper();
         this.httpClient = HttpClients.custom().build();
     }
-    //caso1     distance between 2 UEs with address parameters
+    //1     distance between 2 UEs with address parameters
     public void getUeDistance( ArrayList<String> address) {
 
         try {
@@ -99,6 +99,7 @@ public class GetDistanceProcess {
         }
     }
 
+    //2     distance between UE and geoPosition
     public void getUeGeoPositionDistance( String address, double latitude, double longitude) {
 
         try {

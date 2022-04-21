@@ -2,6 +2,7 @@ package it.unimore.dipi.iot.http.api.client.location;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
+import it.unimore.dipi.iot.http.api.client.location.model.response.*;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -49,6 +50,27 @@ public class GetZonesProcess {
                 System.out.println("---------GET ZONES LIST ----------");
                 logger.info("Response Code: {}", response.getStatusLine().getStatusCode());
                 logger.info("Raw Response Body: {}", bodyString);
+                logger.info("Testing response info...");
+
+                GetZonesResponseDescriptor getZonesResponseDescriptor = this.objectMapper.readValue
+                        (bodyString, GetZonesResponseDescriptor.class);
+                //test response info
+
+                ZoneList zoneList = getZonesResponseDescriptor.getZoneList();
+
+                System.out.println("ResourceURL: "+zoneList.getResourceURL());
+                List <ZoneInfo> zoneInfoList = zoneList.getZone();
+                int i=0;
+                for(ZoneInfo z : zoneInfoList){
+                    i=i+1;
+                    System.out.println("\u001B[32m"+"Zone number "+"\u001B[0m"+i);
+                    System.out.println("NumberOfAccessPoints: "+z.getNumberOfAccessPoints());
+                    System.out.println("NumberOfUnserviceableAccessPoints: "+z.getNumberOfUnserviceableAccessPoints());
+                    System.out.println("NumberOfUsers: "+z.getNumberOfUsers());
+                    System.out.println("ResourceURL: "+z.getResourceURL());
+                    System.out.println("ZoneId: "+ z.getZoneId());
+                }
+
             }
             else {
                 logger.error(String.format("Error executing the request ! Status Code: %d", response != null ? response.getStatusLine().getStatusCode() : -1));
@@ -81,6 +103,16 @@ public class GetZonesProcess {
                 logger.info("Response Code: {}", response.getStatusLine().getStatusCode());
                 logger.info("Raw Response Body: {}", bodyString);
 
+                GetZoneIdResponseDescriptor getZoneIdResponseDescriptor = this.objectMapper.readValue
+                        (bodyString, GetZoneIdResponseDescriptor.class);
+                logger.info("Testing response info...");
+                //test response info
+                ZoneInfo zoneInfo = getZoneIdResponseDescriptor.getZoneInfo();
+                System.out.println("NumberOfAccessPoints: "+zoneInfo.getNumberOfAccessPoints());
+                System.out.println("NumberOfUnserviceableAccessPoints: "+zoneInfo.getNumberOfUnserviceableAccessPoints());
+                System.out.println("NumberOfUsers: "+zoneInfo.getNumberOfUsers());
+                System.out.println("ResourceURL: "+zoneInfo.getResourceURL());
+                System.out.println("ZoneId: "+ zoneInfo.getZoneId());
             }
             else {
                 logger.error(String.format("Error executing the request ! Status Code: %d", response != null ? response.getStatusLine().getStatusCode() : -1));
@@ -111,11 +143,38 @@ public class GetZonesProcess {
 
                 //Obtain response body as a String
                 String bodyString = EntityUtils.toString(response.getEntity());
-
                 logger.info("Response Code: {}", response.getStatusLine().getStatusCode());
                 logger.info("Raw Response Body: {}", bodyString);
 
+                GetZoneAccessPointListResponseDescriptor getZoneAccessPointListResponseDescriptor =
+                        this.objectMapper.readValue(bodyString, GetZoneAccessPointListResponseDescriptor.class);
+                logger.info("Testing response info...");
 
+                AccessPointList accessPointList = getZoneAccessPointListResponseDescriptor.getAccessPointList();
+
+                List<AccessPointInfo> accessPointInfoList = accessPointList.getAccessPoint();
+                int i = 0;
+                for(AccessPointInfo a : accessPointInfoList){
+                    i=i+1;
+                    System.out.println("\u001B[32m"+"AccessPoint number: "+"\u001B[0m"+i);
+                    System.out.println("AccessPointId: " + a.getAccessPointId());
+                    System.out.println("ConnectionType: " + a.getConnectionType());
+                    LocationInfo locationInfo = a.getLocationInfo();
+                    for (double lat : locationInfo.getLatitude()) {
+                        System.out.println("Latitudine: " + lat);
+                    }
+                    for (double lon : locationInfo.getLongitude()) {
+                        System.out.println("Longitudine: " + lon);
+                    }
+                    System.out.println("Shape: "+locationInfo.getShape());
+                    System.out.println("NanoSeconds: " + locationInfo.getTimestamp().getNanoSeconds());
+                    System.out.println("Seconds: " + locationInfo.getTimestamp().getSeconds());
+                    System.out.println("NumberOfUsers: " + a.getNumberOfUsers());
+                    System.out.println("operationStatus: " + a.getOperationStatus());
+                    System.out.println("ResourceURL: " + a.getResourceURL());
+                }
+                System.out.println("ResourceURL: " + accessPointList.getResourceURL());
+                System.out.println("ZoneId: "+ accessPointList.getZoneId());
             }
             else {
                 logger.error(String.format("Error executing the request ! Status Code: %d", response != null ? response.getStatusLine().getStatusCode() : -1));
@@ -149,6 +208,30 @@ public class GetZonesProcess {
 
                 logger.info("Response Code: {}", response.getStatusLine().getStatusCode());
                 logger.info("Raw Response Body: {}", bodyString);
+
+                GetZoneAccessPointResponseDescriptor getZoneAccessPointResponseDescriptor = this.objectMapper.readValue
+                        (bodyString, GetZoneAccessPointResponseDescriptor.class);
+                //test response info
+                AccessPointInfo accessPointInfo = getZoneAccessPointResponseDescriptor.getAccessPointInfo();
+                logger.info("Testing response info...");
+
+                System.out.println("AccessPointId: "+ accessPointInfo.getAccessPointId());
+                System.out.println("ConnectionType "+accessPointInfo.getConnectionType());
+                LocationInfo locationInfo = accessPointInfo.getLocationInfo();
+                for (double lat : locationInfo.getLatitude()) {
+                    System.out.println("Latitudine: " + lat);
+                }
+                for (double lon : locationInfo.getLongitude()) {
+                    System.out.println("Longitudine: " + lon);
+                }
+                System.out.println("Shape: "+locationInfo.getShape());
+                System.out.println("NanoSeconds" + locationInfo.getTimestamp().getNanoSeconds());
+                System.out.println("Seconds" + locationInfo.getTimestamp().getSeconds());
+                System.out.println("NumberOfUsers: "+accessPointInfo.getNumberOfUsers());
+                System.out.println("OperationStatus: "+accessPointInfo.getOperationStatus());
+                System.out.println("resourceURL: "+ accessPointInfo.getResourceURL());
+
+
 
             }
             else {
