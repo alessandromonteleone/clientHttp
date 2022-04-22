@@ -81,6 +81,7 @@ public class GetUsersProcess {
                 // // test response info ...
                 logger.info("Testing response info...");
                 UserList userList = getUsersResponseDescriptor.getUserList();
+
                 System.out.println("ResourceURL:" + userList.getResourceURL());
 
                 if(userList.getUser() != null) {
@@ -108,7 +109,10 @@ public class GetUsersProcess {
                         System.out.println("Seconds: " + timeStamp.getSeconds());
                         System.out.println("ZoneId: " + u.getZoneId());
                     }
+                }else{
+                    System.out.println("\u001B[31m"+"Empty UserList, No users found." + "\u001B[0m");
                 }
+
 
 
             } else {
@@ -130,11 +134,11 @@ public class GetUsersProcess {
         GetUsersProcess apiLocationProcess = new GetUsersProcess(baseUrl);
 
         ArrayList<String> zoneId = new ArrayList<>() {{
-            add("zone04");
+            add("zone03");
         }};
 
         ArrayList<String> accessPointId = new ArrayList<>() {{
-            //add("4g-macro-cell-6");
+            add("4g-macro-cell-6");
             //add("wifi-ap-6");
         }};
 
@@ -143,6 +147,8 @@ public class GetUsersProcess {
             //add("10.1.0.1");
         }};
 
+        //process
         apiLocationProcess.GetLocationLookup(zoneId, accessPointId, address);
+
     }
 }
