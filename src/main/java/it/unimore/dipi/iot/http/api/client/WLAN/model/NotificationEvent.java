@@ -1,7 +1,10 @@
-package it.unimore.dipi.iot.http.api.client.WLAN.model.response;
+package it.unimore.dipi.iot.http.api.client.WLAN.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import javax.annotation.Generated;
+
+@Generated("jsonschema2pojo")
 public class NotificationEvent {
 
     @SerializedName("threshold")

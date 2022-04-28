@@ -1,4 +1,4 @@
-package it.unimore.dipi.iot.http.api.client.WLAN;
+package it.unimore.dipi.iot.http.api.client.WLAN.process;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import it.unimore.dipi.iot.http.api.client.WLAN.model.response.GetApInformationResponseDescriptor;

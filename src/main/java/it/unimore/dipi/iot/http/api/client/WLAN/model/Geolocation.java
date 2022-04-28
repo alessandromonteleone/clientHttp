@@ -1,4 +1,4 @@
-package it.unimore.dipi.iot.http.api.client.WLAN.model.response;
+package it.unimore.dipi.iot.http.api.client.WLAN.model;
 
 
 import javax.annotation.Generated;

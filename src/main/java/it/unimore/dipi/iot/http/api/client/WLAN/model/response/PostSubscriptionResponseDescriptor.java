@@ -1,13 +1,18 @@
-package it.unimore.dipi.iot.http.api.client.WLAN.model.request;
+package it.unimore.dipi.iot.http.api.client.WLAN.model.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import it.unimore.dipi.iot.http.api.client.WLAN.model.response.ApId;
+import it.unimore.dipi.iot.http.api.client.WLAN.model.ApId;
+import it.unimore.dipi.iot.http.api.client.WLAN.model.Links;
+import it.unimore.dipi.iot.http.api.client.WLAN.model.NotificationEvent;
 
-public class PostSubscriptionRequestDescriptor {
+import javax.annotation.Generated;
+
+@Generated("jsonschema2pojo")
+public class PostSubscriptionResponseDescriptor {
 
     @SerializedName("_links")
     @Expose
-    private Links links;
+    private Links _links;
 
     @SerializedName("apId")
     @Expose
@@ -26,11 +31,11 @@ public class PostSubscriptionRequestDescriptor {
     private String subscriptionType;
 
     public Links getLinks() {
-        return links;
+        return _links;
     }
 
-    public void setLinks(Links links) {
-        this.links = links;
+    public void setLinks(Links _links) {
+        this._links = _links;
     }
 
     public ApId getApId() {

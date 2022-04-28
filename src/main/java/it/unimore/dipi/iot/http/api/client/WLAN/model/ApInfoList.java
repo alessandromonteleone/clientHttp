@@ -1,5 +1,4 @@
-package it.unimore.dipi.iot.http.api.client.WLAN.model.response;
-import javax.annotation.Generated;
+package it.unimore.dipi.iot.http.api.client.WLAN.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

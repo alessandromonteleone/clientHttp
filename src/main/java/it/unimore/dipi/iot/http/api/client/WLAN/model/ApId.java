@@ -1,8 +1,9 @@
-package it.unimore.dipi.iot.http.api.client.WLAN.model.response;
+package it.unimore.dipi.iot.http.api.client.WLAN.model;
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@Generated("jsonschema2pojo")
 public class ApId {
     @SerializedName("bssid")
     @Expose

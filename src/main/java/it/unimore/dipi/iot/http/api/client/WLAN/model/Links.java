@@ -7,7 +7,7 @@ import it.unimore.dipi.iot.http.api.client.WLAN.model.Self;
 import javax.annotation.Generated;
 
 @Generated("jsonschema2pojo")
-public class _links {
+public class Links {
     @SerializedName("self")
     @Expose
     private Self self;
