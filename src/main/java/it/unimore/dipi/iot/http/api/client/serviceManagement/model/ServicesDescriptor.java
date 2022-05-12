@@ -9,12 +9,13 @@ import javax.annotation.Generated;
 
 
 @Generated("jsonschema2pojo")
-public class ServicesResponseDescriptor {
+public class ServicesDescriptor {
 
     @SerializedName("serInstanceId")
     @Expose
     private String serInstanceId;
     @SerializedName("serName")
+
     @Expose
     private String serName;
     @SerializedName("serCategory")
