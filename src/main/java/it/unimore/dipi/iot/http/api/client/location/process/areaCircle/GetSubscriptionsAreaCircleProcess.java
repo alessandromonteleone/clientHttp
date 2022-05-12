@@ -1,14 +1,12 @@
-package it.unimore.dipi.iot.http.api.client.location.process;
+package it.unimore.dipi.iot.http.api.client.location.process.areaCircle;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import it.unimore.dipi.iot.http.api.client.WLAN.model.Subscription;
-import it.unimore.dipi.iot.http.api.client.WLAN.model.response.GetSubscriptionsResponseDescriptor;
 import it.unimore.dipi.iot.http.api.client.location.model.CircleNotificationSubscription;
 import it.unimore.dipi.iot.http.api.client.location.model.NotificationSubscriptionList;
-import it.unimore.dipi.iot.http.api.client.location.model.response.GetSubscriptionsAreaCircleResponseDescriptor;
-import it.unimore.dipi.iot.http.api.client.location.model.response.GetSubscriptionsAreaCircleResponseDescriptor;
+import it.unimore.dipi.iot.http.api.client.location.model.response.areaCircle.GetSubscriptionsAreaCircleResponseDescriptor;
+import it.unimore.dipi.iot.http.api.client.location.process.GetDistanceProcess;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;

@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 
 public class GetSubscriptionIdProcess {
 
-    final static protected Logger logger = LoggerFactory.getLogger(GetDistanceProcess.class);
+    final static protected Logger logger = LoggerFactory.getLogger(GetSubscriptionIdProcess.class);
     private CloseableHttpClient httpClient;
     private ObjectMapper objectMapper;
     private String baseUrl;

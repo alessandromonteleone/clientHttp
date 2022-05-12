@@ -1,9 +1,9 @@
-package it.unimore.dipi.iot.http.api.client.serviceManagement.process;
+package it.unimore.dipi.iot.http.api.client.serviceManagement.process.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import it.unimore.dipi.iot.http.api.client.serviceManagement.model.response.GetServicesResponseDescriptor;
+import it.unimore.dipi.iot.http.api.client.serviceManagement.model.ServicesDescriptor;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -78,8 +78,8 @@ public class GetServicesProcess {
                 //Deserialize Json String and Log obtained ResponseDescriptor
                 gson = new GsonBuilder().create();
 
-                GetServicesResponseDescriptor[] responseDescriptorList =
-                        gson.fromJson(bodyString,GetServicesResponseDescriptor[].class);
+                ServicesDescriptor[] responseDescriptorList =
+                        gson.fromJson(bodyString, ServicesDescriptor[].class);
 
                 printResponseDescriptor(responseDescriptorList);
 
@@ -141,8 +141,8 @@ public class GetServicesProcess {
                 //Deserialize Json String and Log obtained ResponseDescriptor
                 gson = new GsonBuilder().create();
 
-                GetServicesResponseDescriptor[] responseDescriptorList =
-                        gson.fromJson(bodyString,GetServicesResponseDescriptor[].class);
+                ServicesDescriptor[] responseDescriptorList =
+                        gson.fromJson(bodyString, ServicesDescriptor[].class);
 
                 printResponseDescriptor(responseDescriptorList);
 
@@ -204,8 +204,8 @@ public class GetServicesProcess {
                 //Deserialize Json String and Log obtained ResponseDescriptor
                 gson = new GsonBuilder().create();
 
-                GetServicesResponseDescriptor[] responseDescriptorList =
-                        gson.fromJson(bodyString,GetServicesResponseDescriptor[].class);
+                ServicesDescriptor[] responseDescriptorList =
+                        gson.fromJson(bodyString, ServicesDescriptor[].class);
 
                 printResponseDescriptor(responseDescriptorList);
 
@@ -265,8 +265,8 @@ public class GetServicesProcess {
                 //Deserialize Json String and Log obtained ResponseDescriptor
                 gson = new GsonBuilder().create();
 
-                GetServicesResponseDescriptor[] responseDescriptorList =
-                        gson.fromJson(bodyString,GetServicesResponseDescriptor[].class);
+                ServicesDescriptor[] responseDescriptorList =
+                        gson.fromJson(bodyString, ServicesDescriptor[].class);
 
                 printResponseDescriptor(responseDescriptorList);
 
@@ -316,8 +316,8 @@ public class GetServicesProcess {
                 //Deserialize Json String and Log obtained ResponseDescriptor
                 gson = new GsonBuilder().create();
 
-                GetServicesResponseDescriptor responseDescriptor =
-                        gson.fromJson(bodyString,GetServicesResponseDescriptor.class);
+                ServicesDescriptor responseDescriptor =
+                        gson.fromJson(bodyString, ServicesDescriptor.class);
 
 
                 System.out.println("serInstanceId: " + responseDescriptor.getSerInstanceId());
@@ -363,7 +363,7 @@ public class GetServicesProcess {
         }
     }
 
-    public void printResponseDescriptor(GetServicesResponseDescriptor[] servicesResponseDescriptorList){
+    public void printResponseDescriptor(ServicesDescriptor[] servicesResponseDescriptorList){
 
         if(servicesResponseDescriptorList != null) {
 
@@ -371,7 +371,7 @@ public class GetServicesProcess {
 
             int size = servicesResponseDescriptorList.length;
 
-            for (GetServicesResponseDescriptor service : servicesResponseDescriptorList) {
+            for (ServicesDescriptor service : servicesResponseDescriptorList) {
 
 
                 i = i+1;
@@ -414,7 +414,7 @@ public class GetServicesProcess {
 
 
     public static void main(String[] args) {
-        logger.info("Starting IoT Inventory GET Tester ...");
+        logger.info("Starting GET Tester ...");
 
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/mec_service_mgmt/v1";
 

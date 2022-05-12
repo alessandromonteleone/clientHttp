@@ -2,7 +2,7 @@ package it.unimore.dipi.iot.http.api.client.location.model.request.AreaCircle;
 
 import it.unimore.dipi.iot.http.api.client.location.model.CircleNotificationSubscription;
 
-public class AreaCircleDescriptor {
+public class AreaCircleRequestDescriptor {
 
     private CircleNotificationSubscription circleNotificationSubscription;
 

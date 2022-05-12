@@ -3,7 +3,7 @@ package it.unimore.dipi.iot.http.api.client.applicationSupport.model.request;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class GetConfirmReadyRequestDescriptor {
+public class PostConfirmReadyRequestDescriptor {
 
     @SerializedName("indication")
     @Expose

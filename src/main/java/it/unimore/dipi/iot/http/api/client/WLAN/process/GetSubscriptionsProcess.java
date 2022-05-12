@@ -57,7 +57,7 @@ public class GetSubscriptionsProcess {
                 GetSubscriptionsResponseDescriptor subscriptionsResponseDescriptor =
                         gson.fromJson(bodyString,GetSubscriptionsResponseDescriptor.class);
 
-                System.out.println("href: " + subscriptionsResponseDescriptor.get_links().getSelf().getHref());
+                System.out.println("href: " + subscriptionsResponseDescriptor.getLinks().getSelf().getHref());
                 int i = 0;
                 for (Subscription s : subscriptionsResponseDescriptor.getSubscriptionsList()){
                     i = i + 1;

@@ -1,4 +1,4 @@
-package it.unimore.dipi.iot.http.api.client.serviceManagement.model.response;
+package it.unimore.dipi.iot.http.api.client.serviceManagement.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -11,18 +11,18 @@ public class GetSubscriptionsResponseDescriptor {
 
     @SerializedName("_links")
     @Expose
-    private Links _links;
+    private Links links;
 
     @SerializedName("subscription")
     @Expose
     private List<Subscription> subscriptionsList;
 
-    public Links get_links() {
-        return _links;
+    public Links getLinks() {
+        return links;
     }
 
-    public void set_links(Links _links) {
-        this._links = _links;
+    public void setLinks(Links links) {
+        this.links = links;
     }
 
     public List<Subscription> getSubscriptionsList() {

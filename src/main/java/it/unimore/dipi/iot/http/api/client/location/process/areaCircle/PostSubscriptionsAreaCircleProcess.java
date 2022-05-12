@@ -1,12 +1,13 @@
-package it.unimore.dipi.iot.http.api.client.location.process;
+package it.unimore.dipi.iot.http.api.client.location.process.areaCircle;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import it.unimore.dipi.iot.http.api.client.location.model.request.AreaCircle.AreaCircleDescriptor;
+import it.unimore.dipi.iot.http.api.client.location.model.request.AreaCircle.AreaCircleRequestDescriptor;
 import it.unimore.dipi.iot.http.api.client.location.model.CallbackReference;
 import it.unimore.dipi.iot.http.api.client.location.model.CircleNotificationSubscription;
-import it.unimore.dipi.iot.http.api.client.location.model.response.PostSubscriptionAreaCircleResponseDescriptor;
+import it.unimore.dipi.iot.http.api.client.location.model.response.areaCircle.PostSubscriptionAreaCircleResponseDescriptor;
+import it.unimore.dipi.iot.http.api.client.location.process.GetDistanceProcess;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -24,7 +25,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class PostSubscriptionsAreaCircleProcess {
-    final static protected Logger logger = LoggerFactory.getLogger(GetDistanceProcess.class);
+    final static protected Logger logger = LoggerFactory.getLogger(PostSubscriptionsAreaCircleProcess.class);
 
     private CloseableHttpClient httpClient;
     private ObjectMapper objectMapper;
@@ -36,7 +37,7 @@ public class PostSubscriptionsAreaCircleProcess {
         this.httpClient = HttpClients.custom().build();
     }
 
-    public void createNewSubscription(AreaCircleDescriptor areaCircleDescriptor) {
+    public void createNewSubscription(AreaCircleRequestDescriptor areaCircleDescriptor) {
         try{
             //https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2
             String targetUrl = String.format("%s/subscriptions/area/circle", this.baseUrl);
@@ -143,7 +144,7 @@ public class PostSubscriptionsAreaCircleProcess {
         circleNotificationSubscription.setRadius(300);
         circleNotificationSubscription.setTrackingAccuracy(10);
 
-        AreaCircleDescriptor areaCircleDescriptor = new AreaCircleDescriptor();
+        AreaCircleRequestDescriptor areaCircleDescriptor = new AreaCircleRequestDescriptor();
         areaCircleDescriptor.setCircleNotificationSubscription(circleNotificationSubscription);
 
         PostSubscriptionsAreaCircleProcess apiLocationProcess = new PostSubscriptionsAreaCircleProcess(baseUrl);

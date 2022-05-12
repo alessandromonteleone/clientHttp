@@ -1,9 +1,7 @@
-package it.unimore.dipi.iot.http.api.client.location.process;
+package it.unimore.dipi.iot.http.api.client.location.process.areaCircle;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import it.unimore.dipi.iot.http.api.client.WLAN.process.DeleteSubscriptionProcess;
 import it.unimore.dipi.iot.http.api.client.WLAN.process.PostSubscriptionProcess;
-import org.apache.http.Header;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;

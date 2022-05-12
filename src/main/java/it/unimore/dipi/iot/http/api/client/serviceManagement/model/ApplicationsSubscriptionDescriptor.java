@@ -1,11 +1,11 @@
-package it.unimore.dipi.iot.http.api.client.serviceManagement.model.response;
+package it.unimore.dipi.iot.http.api.client.serviceManagement.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import it.unimore.dipi.iot.http.api.client.serviceManagement.model.FilteringCriteria;
 import it.unimore.dipi.iot.http.api.client.serviceManagement.model.Links;
 
-public class PostApplicationsSubscriptionDescriptor {
+public class ApplicationsSubscriptionDescriptor {
 
     @SerializedName("subscriptionType")
     @Expose

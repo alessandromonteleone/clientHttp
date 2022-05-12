@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import it.unimore.dipi.iot.http.api.client.location.model.PeriodicNotificationSubscription;
 
-public class PostPeriodicRequestDescriptor {
+public class PeriodicRequestDescriptor {
     @SerializedName("periodicNotificationSubscription")
     @Expose
     private PeriodicNotificationSubscription periodicNotificationSubscription;

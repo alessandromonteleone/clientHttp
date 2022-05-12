@@ -130,7 +130,8 @@ public class GetDistanceProcess {
                 logger.info("Raw Response Body: {}", bodyString);
 
                 //Deserialize Json String and obtained getDistanceResponseDescriptor
-                GetDistanceResponseDescriptor getDistanceResponseDescriptor = this.objectMapper.readValue(bodyString, GetDistanceResponseDescriptor.class);
+                GetDistanceResponseDescriptor getDistanceResponseDescriptor = this.objectMapper.readValue(bodyString,
+                        GetDistanceResponseDescriptor.class);
                 TerminalDistance terminalDistance = getDistanceResponseDescriptor.getTerminalDistance();
 
                 // test response info ...

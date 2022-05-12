@@ -3,7 +3,7 @@ package it.unimore.dipi.iot.http.api.client.serviceManagement.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class TrasportInfo {
+public class TransportInfo {
 
     @SerializedName("id")
     @Expose
@@ -11,6 +11,11 @@ public class TrasportInfo {
     @SerializedName("name")
     @Expose
     private String name;
+
+    @SerializedName("description")
+    @Expose
+    private String description;
+
     @SerializedName("type")
     @Expose
     private String type;
@@ -26,6 +31,14 @@ public class TrasportInfo {
     @SerializedName("security")
     @Expose
     private Object security;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public String getId() {
         return id;

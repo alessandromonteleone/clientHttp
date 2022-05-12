@@ -1,9 +1,9 @@
-package it.unimore.dipi.iot.http.api.client.serviceManagement.process;
+package it.unimore.dipi.iot.http.api.client.serviceManagement.process.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import it.unimore.dipi.iot.http.api.client.serviceManagement.model.response.GetServicesResponseDescriptor;
+import it.unimore.dipi.iot.http.api.client.serviceManagement.model.ServicesDescriptor;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 
 public class GetApplicationsServicesProcess {
-    final static protected Logger logger = LoggerFactory.getLogger(GetServicesProcess.class);
+    final static protected Logger logger = LoggerFactory.getLogger(GetApplicationsServicesProcess.class);
 
     private final CloseableHttpClient httpClient;
     private final ObjectMapper objectMapper;
@@ -75,8 +75,8 @@ public class GetApplicationsServicesProcess {
                 //Deserialize Json String and Log obtained ResponseDescriptor
                 gson = new GsonBuilder().create();
 
-                GetServicesResponseDescriptor[] responseDescriptorList =
-                        gson.fromJson(bodyString,GetServicesResponseDescriptor[].class);
+                ServicesDescriptor[] responseDescriptorList =
+                        gson.fromJson(bodyString, ServicesDescriptor[].class);
 
                 printResponseDescriptor(responseDescriptorList);
 
@@ -140,8 +140,8 @@ public class GetApplicationsServicesProcess {
                 //Deserialize Json String and Log obtained ResponseDescriptor
                 gson = new GsonBuilder().create();
 
-                GetServicesResponseDescriptor[] responseDescriptorList =
-                        gson.fromJson(bodyString,GetServicesResponseDescriptor[].class);
+                ServicesDescriptor[] responseDescriptorList =
+                        gson.fromJson(bodyString, ServicesDescriptor[].class);
 
                 printResponseDescriptor(responseDescriptorList);
 
@@ -203,8 +203,8 @@ public class GetApplicationsServicesProcess {
                 //Deserialize Json String and Log obtained ResponseDescriptor
                 gson = new GsonBuilder().create();
 
-                GetServicesResponseDescriptor[] responseDescriptorList =
-                        gson.fromJson(bodyString,GetServicesResponseDescriptor[].class);
+                ServicesDescriptor[] responseDescriptorList =
+                        gson.fromJson(bodyString, ServicesDescriptor[].class);
 
                 printResponseDescriptor(responseDescriptorList);
 
@@ -263,8 +263,8 @@ public class GetApplicationsServicesProcess {
                 //Deserialize Json String and Log obtained ResponseDescriptor
                 gson = new GsonBuilder().create();
 
-                GetServicesResponseDescriptor[] responseDescriptorList =
-                        gson.fromJson(bodyString,GetServicesResponseDescriptor[].class);
+                ServicesDescriptor[] responseDescriptorList =
+                        gson.fromJson(bodyString, ServicesDescriptor[].class);
 
                 printResponseDescriptor(responseDescriptorList);
 
@@ -315,8 +315,8 @@ public class GetApplicationsServicesProcess {
                 //Deserialize Json String and Log obtained ResponseDescriptor
                 gson = new GsonBuilder().create();
 
-                GetServicesResponseDescriptor responseDescriptor =
-                        gson.fromJson(bodyString,GetServicesResponseDescriptor.class);
+                ServicesDescriptor responseDescriptor =
+                        gson.fromJson(bodyString, ServicesDescriptor.class);
 
 
                 System.out.println("serInstanceId: " + responseDescriptor.getSerInstanceId());
@@ -366,7 +366,7 @@ public class GetApplicationsServicesProcess {
 
 
 
-    public void printResponseDescriptor(GetServicesResponseDescriptor[] servicesResponseDescriptorList){
+    public void printResponseDescriptor(ServicesDescriptor[] servicesResponseDescriptorList){
 
         if(servicesResponseDescriptorList != null) {
 
@@ -374,7 +374,7 @@ public class GetApplicationsServicesProcess {
 
             int size = servicesResponseDescriptorList.length;
 
-            for (GetServicesResponseDescriptor service : servicesResponseDescriptorList) {
+            for (ServicesDescriptor service : servicesResponseDescriptorList) {
 
 
                 i = i+1;
@@ -390,20 +390,20 @@ public class GetApplicationsServicesProcess {
                 System.out.println("    version: " + service.getSerCategory().getVersion());
 
                 System.out.println("version: " + service.getVersion());
-                System.out.println("state" + service.getState());
+                System.out.println("state: " + service.getState());
 
                 System.out.println("transportInfo:");
                 System.out.println("    id: " + service.getTransportInfo().getId());
                 System.out.println("    name: " + service.getTransportInfo().getName());
                 System.out.println("    type: " + service.getTransportInfo().getType());
-                System.out.println("    protocol" + service.getTransportInfo().getProtocol());
+                System.out.println("    protocol: " + service.getTransportInfo().getProtocol());
                 System.out.println("    version: " + service.getTransportInfo().getVersion());
 
                 System.out.println("    endpoint:\n         uris:");
                 for (String uris : service.getTransportInfo().getEndpoint().getUris())
                     System.out.println("            " + uris);
 
-                System.out.println("    security:" + service.getTransportInfo().getSecurity());
+                System.out.println("    security: " + service.getTransportInfo().getSecurity());
                 System.out.println("serializer: " + service.getSerializer());
                 System.out.println("scopeOfLocality: " + service.getScopeOfLocality());
                 System.out.println("consumedLocalOnly: " + service.getConsumedLocalOnly());
