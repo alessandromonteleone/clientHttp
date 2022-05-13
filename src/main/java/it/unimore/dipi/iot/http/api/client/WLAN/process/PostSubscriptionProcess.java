@@ -7,7 +7,7 @@ import it.unimore.dipi.iot.http.api.client.WLAN.model.ApId;
 import it.unimore.dipi.iot.http.api.client.WLAN.model.NotificationEvent;
 import it.unimore.dipi.iot.http.api.client.WLAN.model.request.PostSubscriptionRequestDescriptor;
 import it.unimore.dipi.iot.http.api.client.WLAN.model.response.PostSubscriptionResponseDescriptor;
-import it.unimore.dipi.iot.http.api.client.location.process.GetDistanceProcess;
+import it.unimore.dipi.iot.http.api.client.location.process.queries.GetDistanceProcess;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;

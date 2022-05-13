@@ -6,7 +6,7 @@ import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.location.model.CircleNotificationSubscription;
 import it.unimore.dipi.iot.http.api.client.location.model.NotificationSubscriptionList;
 import it.unimore.dipi.iot.http.api.client.location.model.response.areaCircle.GetSubscriptionsAreaCircleResponseDescriptor;
-import it.unimore.dipi.iot.http.api.client.location.process.GetDistanceProcess;
+import it.unimore.dipi.iot.http.api.client.location.process.queries.GetDistanceProcess;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;

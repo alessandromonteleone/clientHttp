@@ -7,7 +7,6 @@ import it.unimore.dipi.iot.http.api.client.location.model.request.AreaCircle.Are
 import it.unimore.dipi.iot.http.api.client.location.model.CallbackReference;
 import it.unimore.dipi.iot.http.api.client.location.model.CircleNotificationSubscription;
 import it.unimore.dipi.iot.http.api.client.location.model.response.areaCircle.PostSubscriptionAreaCircleResponseDescriptor;
-import it.unimore.dipi.iot.http.api.client.location.process.GetDistanceProcess;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;

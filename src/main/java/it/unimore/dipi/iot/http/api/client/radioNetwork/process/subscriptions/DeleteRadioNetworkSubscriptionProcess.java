@@ -1,6 +1,4 @@
-package it.unimore.dipi.iot.http.api.client.WLAN.process;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
+package it.unimore.dipi.iot.http.api.client.radioNetwork.process.subscriptions;
 
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
@@ -15,17 +13,15 @@ import org.slf4j.LoggerFactory;
 import java.util.Arrays;
 import java.util.Optional;
 
-public class DeleteSubscriptionProcess {
+public class DeleteRadioNetworkSubscriptionProcess {
 
-    final static protected Logger logger = LoggerFactory.getLogger(PostSubscriptionProcess.class);
+    final static protected Logger logger = LoggerFactory.getLogger(PostRadioNetworkSubscriptionProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final String baseUrl;
 
-    public DeleteSubscriptionProcess(String baseUrl) {
+    public DeleteRadioNetworkSubscriptionProcess(String baseUrl) {
         this.baseUrl = baseUrl;
-        this.objectMapper = new ObjectMapper();
         this.httpClient = HttpClients.custom().build();
     }
 
@@ -79,11 +75,15 @@ public class DeleteSubscriptionProcess {
 
     public static void main(String[] args) {
 
-        logger.info("Starting IoT Inventory Location Create Tester ...");
-        String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/wai/v2";
-        String subscriptionId = "sub-pMfWRBXydlsR-EIJ"; //si trova nell' href delle response del post subscription
-        DeleteSubscriptionProcess deleteSubscriptionProcess = new DeleteSubscriptionProcess(baseUrl);
-        deleteSubscriptionProcess.DeleteSubscription(subscriptionId);
+        logger.info("Starting Tester ...");
+        String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/rni/v2";
 
+        //find it in href response of post subscription
+        String subscriptionId = "2";
+
+        DeleteRadioNetworkSubscriptionProcess deleteSubscriptionProcess = new DeleteRadioNetworkSubscriptionProcess(baseUrl);
+
+        ///DELETE .../subscriptions/{subscriptionId}
+        deleteSubscriptionProcess.DeleteSubscription(subscriptionId);
     }
 }

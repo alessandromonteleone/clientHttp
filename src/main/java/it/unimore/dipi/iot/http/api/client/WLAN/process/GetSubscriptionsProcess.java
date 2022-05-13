@@ -5,7 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.WLAN.model.Subscription;
 import it.unimore.dipi.iot.http.api.client.WLAN.model.response.GetSubscriptionsResponseDescriptor;
-import it.unimore.dipi.iot.http.api.client.location.process.GetDistanceProcess;
+import it.unimore.dipi.iot.http.api.client.location.process.queries.GetDistanceProcess;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;

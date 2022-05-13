@@ -1,4 +1,4 @@
-package it.unimore.dipi.iot.http.api.client.location.process;
+package it.unimore.dipi.iot.http.api.client.location.process.queries;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import it.unimore.dipi.iot.http.api.client.location.model.*;
