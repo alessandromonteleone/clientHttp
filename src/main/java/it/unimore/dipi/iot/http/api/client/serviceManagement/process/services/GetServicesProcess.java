@@ -1,6 +1,5 @@
 package it.unimore.dipi.iot.http.api.client.serviceManagement.process.services;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.serviceManagement.model.ServicesDescriptor;
@@ -24,13 +23,11 @@ public class GetServicesProcess {
     final static protected Logger logger = LoggerFactory.getLogger(GetServicesProcess.class);
 
     private final CloseableHttpClient httpClient;
-    private final ObjectMapper objectMapper;
     private final String baseUrl;
     private Gson gson;
 
     public GetServicesProcess(String baseUrl) {
         this.baseUrl = baseUrl;
-        this.objectMapper = new ObjectMapper();
         this.httpClient = HttpClients.custom().build();
     }
 
@@ -55,7 +52,7 @@ public class GetServicesProcess {
             if (scopeOfLocality != null)
                 builder.addParameter("scope_of_locality", String.format("%s",isLocal));
 
-            logger.info("URI: {}", builder.toString());
+            logger.info("URI: {}", builder);
 
             //Create the HTTP GET Request
             HttpGet getServiceRequest = new HttpGet(builder.build());
@@ -181,7 +178,7 @@ public class GetServicesProcess {
             if (scopeOfLocality != null)
                 builder.addParameter("scope_of_locality", String.format("%s",isLocal));
 
-            logger.info("URI: {}", builder.toString());
+            logger.info("URI: {}", builder);
 
             //Create the HTTP GET Request
             HttpGet getServiceRequest = new HttpGet(builder.build());
@@ -242,7 +239,7 @@ public class GetServicesProcess {
             if (scopeOfLocality != null)
                 builder.addParameter("scope_of_locality", String.format("%s",isLocal));
 
-            logger.info("URI: {}", builder.toString());
+            logger.info("URI: {}", builder);
 
             //Create the HTTP GET Request
             HttpGet getServiceRequest = new HttpGet(builder.build());
@@ -293,7 +290,7 @@ public class GetServicesProcess {
             //Output -> "/mec_service_mgmt/v1/services?ser_name=...&ser_name=..."
             URIBuilder builder = new URIBuilder(targetUrl);
 
-            logger.info("URI: {}", builder.toString());
+            logger.info("URI: {}", builder);
 
             //Create the HTTP GET Request
             HttpGet getServiceRequest = new HttpGet(builder.build());
