@@ -4,14 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.location.model.CallbackReference;
-import it.unimore.dipi.iot.http.api.client.location.model.DistanceNotificationSubscription;
 import it.unimore.dipi.iot.http.api.client.location.model.Link;
 import it.unimore.dipi.iot.http.api.client.location.model.PeriodicNotificationSubscription;
-import it.unimore.dipi.iot.http.api.client.location.model.request.distance.DistanceRequestDescriptor;
 import it.unimore.dipi.iot.http.api.client.location.model.request.periodic.PeriodicRequestDescriptor;
-import it.unimore.dipi.iot.http.api.client.location.model.response.distance.PostSubscriptionDistanceResponseDescriptor;
-import it.unimore.dipi.iot.http.api.client.location.process.distance.PostSubscriptionDistanceProcess;
-import org.apache.http.Header;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -32,10 +27,10 @@ public class PostPeriodicSubscriptionProcess {
 
     final static protected Logger logger = LoggerFactory.getLogger(PostPeriodicSubscriptionProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
-    private Gson gson;
+    private final CloseableHttpClient httpClient;
+    private final ObjectMapper objectMapper;
+    private final String baseUrl;
+
     public PostPeriodicSubscriptionProcess(String baseUrl) {
         this.baseUrl = baseUrl;
         this.objectMapper = new ObjectMapper();
@@ -86,7 +81,7 @@ public class PostPeriodicSubscriptionProcess {
                 logger.info("Raw Response Body: {}", bodyString);
 
                 //create response gson
-                gson = new GsonBuilder().create();
+                Gson gson = new GsonBuilder().create();
                 PeriodicRequestDescriptor subscriptionPeriodicResponse =
                         gson.fromJson(bodyString, PeriodicRequestDescriptor.class);
 
@@ -94,6 +89,28 @@ public class PostPeriodicSubscriptionProcess {
                 logger.info("Testing info response");
                 //to do print
 
+                System.out.println("\nperiodicNotificationSubscription:");
+                System.out.println("    address:");
+                for (String address : subscriptionPeriodicResponse.getPeriodicNotificationSubscription().getAddress())
+                    System.out.println("        " + address);
+                System.out.println("    callbackReference: ");
+                System.out.println("        callbackData: " + subscriptionPeriodicResponse.getPeriodicNotificationSubscription().
+                        getCallbackReference().getCallbackData());
+                System.out.println("        notificationFormat: " + subscriptionPeriodicResponse.getPeriodicNotificationSubscription().
+                        getCallbackReference().getNotificationFormat());
+                System.out.println("        notifyURL: " + subscriptionPeriodicResponse.getPeriodicNotificationSubscription().
+                        getCallbackReference().getNotifyURL());
+                System.out.println("    clientCorrelator: " + subscriptionPeriodicResponse.getPeriodicNotificationSubscription().getClientCorrelator());
+                System.out.println("    duration: " + subscriptionPeriodicResponse.getPeriodicNotificationSubscription().getDuration());
+                System.out.println("    frequency: " + subscriptionPeriodicResponse.getPeriodicNotificationSubscription().getFrequency());
+                System.out.println("    links: ");
+                for (Link link : subscriptionPeriodicResponse.getPeriodicNotificationSubscription().getLink()){
+                    System.out.println("        href: " + link.getHref());
+                    System.out.println("        rel: " + link.getRel());
+                }
+                System.out.println("    requestedAccuracy: " + subscriptionPeriodicResponse.getPeriodicNotificationSubscription().getRequestedAccuracy());
+                System.out.println("        requester: " + subscriptionPeriodicResponse.getPeriodicNotificationSubscription().getRequester());
+                System.out.println("    resourceURL: " + subscriptionPeriodicResponse.getPeriodicNotificationSubscription().getResourceURL());
             }
             else {
                 logger.error(String.format("Error executing the request ! Status Code: %d -> Response Body: %s",
@@ -146,6 +163,8 @@ public class PostPeriodicSubscriptionProcess {
         periodicNotificationSubscription.setLink(linkList);
 
         periodicNotificationSubscription.setRequestedAccuracy(10);
+
+        //Identifies the entity that is requesting the information (e.g. "sip" URI, "tel" URI, "acr" URI)
         periodicNotificationSubscription.setRequester("sip"); //sip, tel, acr
         periodicNotificationSubscription.setResourceURL("");
 
