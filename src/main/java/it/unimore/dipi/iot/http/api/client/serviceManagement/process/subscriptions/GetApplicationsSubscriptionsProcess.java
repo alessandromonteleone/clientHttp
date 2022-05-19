@@ -1,6 +1,5 @@
 package it.unimore.dipi.iot.http.api.client.serviceManagement.process.subscriptions;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.serviceManagement.model.ApplicationsSubscriptionDescriptor;
@@ -22,7 +21,7 @@ import org.slf4j.LoggerFactory;
 public class GetApplicationsSubscriptionsProcess {
 
 
-    final static protected Logger logger = LoggerFactory.getLogger(GetServicesProcess.class);
+    final static protected Logger logger = LoggerFactory.getLogger(GetApplicationsSubscriptionsProcess.class);
 
     private final CloseableHttpClient httpClient;
     private final String baseUrl;
@@ -30,7 +29,6 @@ public class GetApplicationsSubscriptionsProcess {
 
     public GetApplicationsSubscriptionsProcess(String baseUrl) {
         this.baseUrl = baseUrl;
-        ObjectMapper objectMapper = new ObjectMapper();
         this.httpClient = HttpClients.custom().build();
     }
 
@@ -163,8 +161,6 @@ public class GetApplicationsSubscriptionsProcess {
                 e.printStackTrace();
             }
 
-
-
     }
 
     public static void main(String[] args) {
@@ -173,9 +169,9 @@ public class GetApplicationsSubscriptionsProcess {
 
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/mec_service_mgmt/v1";
 
-        String appInstanceId = "a6735c89-9041-4fac-a9d5-d28c7b81cc7d";
+        String appInstanceId = "e486e1c1-2c28-498c-b216-6e624b031c55";
 
-        String subscriptionId = "sub-62FQ4Gz_gR30wf9h";
+        String subscriptionId = "sub-aSjDldk3SWQKlZfr";
 
         GetApplicationsSubscriptionsProcess subscriptionsProcess = new GetApplicationsSubscriptionsProcess(baseUrl);
 

@@ -78,7 +78,7 @@ public class DeleteAppMobilityServicesProcess {
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/amsi/v1";
 
         //find it in Post ResponseBody
-        String appMobilityServiceId = "aHhCkDzrvVC2RG-N";
+        String appMobilityServiceId = "Tb0z8mKZwEjnsxOa";
 
         //process
         DeleteAppMobilityServicesProcess deleteAppMobilityServicesProcess = new DeleteAppMobilityServicesProcess(baseUrl);

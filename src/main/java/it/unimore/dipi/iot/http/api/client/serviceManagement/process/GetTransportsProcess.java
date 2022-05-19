@@ -1,10 +1,8 @@
 package it.unimore.dipi.iot.http.api.client.serviceManagement.process;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.serviceManagement.model.response.GetTransportsResponseDescriptor;
-import it.unimore.dipi.iot.http.api.client.serviceManagement.process.services.GetServicesProcess;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -25,7 +23,6 @@ public class GetTransportsProcess {
 
     public GetTransportsProcess(String baseUrl) {
         this.baseUrl = baseUrl;
-        ObjectMapper objectMapper = new ObjectMapper();
         this.httpClient = HttpClients.custom().build();
     }
 
@@ -103,7 +100,7 @@ public class GetTransportsProcess {
 
         GetTransportsProcess transportsProcess = new GetTransportsProcess(baseURL);
 
-        //GET /transports
+        //GET .../transports
         transportsProcess.getTransports();
 
     }

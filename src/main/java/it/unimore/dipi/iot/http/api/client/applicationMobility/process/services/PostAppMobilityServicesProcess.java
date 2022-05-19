@@ -17,10 +17,7 @@ import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class PostAppMobilityServicesProcess {
 
@@ -122,32 +119,36 @@ public class PostAppMobilityServicesProcess {
         // create request
         AppMobilityServicesDescriptor requestDescriptor = new AppMobilityServicesDescriptor();
 
-        DeviceInformation deviceInformation = new DeviceInformation();
-        deviceInformation.setAppMobilityServiceLevel(3);
+        System.out.println("(1) first instance, (other) second instance:");
 
-        AssociateId associateId = new AssociateId();
-        associateId.setType(1);
-        associateId.setValue("10.100.0.1");
+        Scanner tastiera = new Scanner(System.in);
+        String s = tastiera.nextLine();
 
-        deviceInformation.setAssociateId(associateId);
+        if (Objects.equals(s, "1")) {
+            DeviceInformation deviceInformation = new DeviceInformation();
+            deviceInformation.setAppMobilityServiceLevel(3);
+            //
+            AssociateId associateId = new AssociateId();
+            associateId.setType(1);
+            associateId.setValue("10.100.0.3");
 
-        deviceInformation.setContextTransferState(0);
+            deviceInformation.setAssociateId(associateId);
 
-        List<DeviceInformation> deviceInformationList = new ArrayList<>();
-        deviceInformationList.add(deviceInformation);
+            deviceInformation.setContextTransferState(0);
 
+            List<DeviceInformation> deviceInformationList = new ArrayList<>();
+            deviceInformationList.add(deviceInformation);
+            requestDescriptor.setDeviceInformation(deviceInformationList);
+        }
+
+        //The MEC Application instance running on MEC Platform mep2 not provide device information.
         ServiceConsumerId serviceConsumerId = new ServiceConsumerId();
-        serviceConsumerId.setAppInstanceId("7426e03b-8584-497a-81f6-883207158a3d");
-
+        serviceConsumerId.setAppInstanceId("fba76408-b3a9-44b2-bedc-c99c5465d52f");
         requestDescriptor.setServiceConsumerId(serviceConsumerId);
-
-        requestDescriptor.setDeviceInformation(deviceInformationList);
 
 
         //POST .../app_mobility_services
         appMobilityServicesProcess.CreateAppMobilityServiceSubscription(requestDescriptor);
-
-
 
     }
 

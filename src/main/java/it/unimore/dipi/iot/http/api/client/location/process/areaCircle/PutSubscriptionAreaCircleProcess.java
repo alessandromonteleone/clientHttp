@@ -33,11 +33,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class PutSubscriptionAreaCircleProcess {
-    final static protected Logger logger = LoggerFactory.getLogger(PostSubscriptionProcess.class);
+    final static protected Logger logger = LoggerFactory.getLogger(PutSubscriptionAreaCircleProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final ObjectMapper objectMapper;
+    private final String baseUrl;
 
     public PutSubscriptionAreaCircleProcess(String baseUrl) {
         this.baseUrl = baseUrl;
@@ -125,9 +125,9 @@ public class PutSubscriptionAreaCircleProcess {
 
     public static void main(String[] args) {
 
-        logger.info("Starting IoT Inventory Location Create Tester ...");
+        logger.info("Starting Location Tester ...");
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2";
-        String subscriptionId = "2";
+        String subscriptionId = "1";
 
         //process
         PutSubscriptionAreaCircleProcess subscriptionProcess = new PutSubscriptionAreaCircleProcess(baseUrl);
@@ -163,7 +163,7 @@ public class PutSubscriptionAreaCircleProcess {
         circleNotificationSubscription.setRadius(200);
 
         circleNotificationSubscription.setResourceURL
-                ("http://[hostIP]/sbox-xyz123/location/v2/subscriptions/area/circle/subscription/2");
+                ("http://[hostIP]/sbox-xyz123/location/v2/subscriptions/area/circle/subscription/1");
 
         circleNotificationSubscription.setTrackingAccuracy(10);
 

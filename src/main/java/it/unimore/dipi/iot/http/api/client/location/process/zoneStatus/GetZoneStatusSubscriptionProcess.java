@@ -17,7 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class GetZoneStatusSubscriptionProcess {
-    final static protected Logger logger = LoggerFactory.getLogger( GetZonalTrafficSubscriptionProcess.class);
+    final static protected Logger logger = LoggerFactory.getLogger( GetZoneStatusSubscriptionProcess.class);
     private final CloseableHttpClient httpClient;
     private final String baseUrl;
 
@@ -136,7 +136,7 @@ public class GetZoneStatusSubscriptionProcess {
     public static void main(String[] args){
 
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2";
-        String subscriptionId = "2";
+        String subscriptionId = "1";
 
         GetZoneStatusSubscriptionProcess zoneStatusSubscriptionProcess= new GetZoneStatusSubscriptionProcess(baseUrl);
 

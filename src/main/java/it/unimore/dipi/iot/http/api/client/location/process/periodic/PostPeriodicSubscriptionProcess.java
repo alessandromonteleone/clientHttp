@@ -127,7 +127,7 @@ public class PostPeriodicSubscriptionProcess {
 
     public static void main(String[] args) {
 
-        logger.info("Starting IoT Inventory Location Create Tester ...");
+        logger.info("Starting Tester ...");
 
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2";
 
@@ -146,13 +146,13 @@ public class PostPeriodicSubscriptionProcess {
         CallbackReference callbackReference = new CallbackReference();
         callbackReference.setCallbackData("0123");
         callbackReference.setNotificationFormat("XML");
-        callbackReference.setNotifyURL("http://example.com");
+        callbackReference.setNotifyURL("http://79ee-62-211-88-203.eu.ngrok.io/location/periodic");
 
         periodicNotificationSubscription.setCallbackReference(callbackReference);
 
         periodicNotificationSubscription.setClientCorrelator("1234");
-        periodicNotificationSubscription.setDuration(120);
-        periodicNotificationSubscription.setFrequency(120);
+        periodicNotificationSubscription.setDuration(5);
+        periodicNotificationSubscription.setFrequency(30);
 
         Link link = new Link();
         link.setHref("");

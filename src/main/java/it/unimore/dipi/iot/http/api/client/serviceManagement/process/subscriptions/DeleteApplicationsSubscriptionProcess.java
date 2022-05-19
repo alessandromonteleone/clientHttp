@@ -77,11 +77,11 @@ public class DeleteApplicationsSubscriptionProcess {
 
         logger.info("Starting Delete process ...");
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/mec_service_mgmt/v1";
-        String appInstanceId = "1ac5f83f-2e37-4724-9674-0c2e3a664864";
+        String appInstanceId = "e486e1c1-2c28-498c-b216-6e624b031c55";
 
         //find it: "GET .../applications/{appInstanceId}/subscriptions"" o  "GET .../applications/{appInstanceId}/subscriptions/{subscriptionId}
         //get it: "POST .../applications/{appInstanceId}/subscriptions
-        String subscriptionId = "sub-0k98EFSCQAKy0kGs";
+        String subscriptionId = "sub-aSjDldk3SWQKlZfr";
 
         DeleteApplicationsSubscriptionProcess servicesProcess = new DeleteApplicationsSubscriptionProcess(baseUrl);
 

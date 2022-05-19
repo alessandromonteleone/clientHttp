@@ -1,6 +1,5 @@
 package it.unimore.dipi.iot.http.api.client.applicationSupport.process.applications;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -23,7 +22,6 @@ public class DeleteApplicationSubscriptionProcess {
 
     public DeleteApplicationSubscriptionProcess(String baseUrl) {
         this.baseUrl = baseUrl;
-        ObjectMapper objectMapper = new ObjectMapper();
         this.httpClient = HttpClients.custom().build();
     }
 
@@ -78,10 +76,11 @@ public class DeleteApplicationSubscriptionProcess {
 
     public static void main(String[] args) {
 
-        logger.info("Starting IoT Inventory Location Create Tester ...");
+        logger.info("Starting Tester ...");
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/mec_app_support/v1";
-        String appInstanceId = "b8a203be-ac81-45a6-8d88-fdb1f8f5393b";
-        String subscriptionId = "sub-aB98tlzb7JKRhCzY"; // si trova in resourceURL nella riposta alla post
+        String appInstanceId = "9ca85893-2f48-4073-9f54-ab5e82327272";
+        // find it in href Post subscription response
+        String subscriptionId = "sub-hV_xRHPGgTNrM2ep";
         DeleteApplicationSubscriptionProcess deleteSubscriptionProcess = new DeleteApplicationSubscriptionProcess(baseUrl);
         deleteSubscriptionProcess.DeleteSubscription(appInstanceId,subscriptionId);
     }

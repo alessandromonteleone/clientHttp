@@ -21,11 +21,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GetUsersProcess {
-    final static protected Logger logger = LoggerFactory.getLogger(GetDistanceProcess.class);
+    final static protected Logger logger = LoggerFactory.getLogger(GetUsersProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final ObjectMapper objectMapper;
+    private final String baseUrl;
 
     public GetUsersProcess(String baseUrl) {
         this.baseUrl = baseUrl;
@@ -57,7 +57,7 @@ public class GetUsersProcess {
                 builder.addParameter("address", s);
             }
 
-            logger.info("URI: {}", builder.toString());
+            logger.info("URI: {}", builder);
 
             //Create the HTTP GET Request
             HttpGet getLocationListRequest = new HttpGet(builder.build());

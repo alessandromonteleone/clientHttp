@@ -1,11 +1,8 @@
 package it.unimore.dipi.iot.http.api.client.location.process.distance;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import it.unimore.dipi.iot.http.api.client.location.model.CircleNotificationSubscription;
 import it.unimore.dipi.iot.http.api.client.location.model.DistanceNotificationSubscription;
-import it.unimore.dipi.iot.http.api.client.location.model.response.areaCircle.GetSubscriptionIdAreaCircleResponseDescriptor;
 import it.unimore.dipi.iot.http.api.client.location.model.response.distance.GetSubscriptionIdDistanceResponseDescriptor;
 import it.unimore.dipi.iot.http.api.client.location.process.areaCircle.GetSubscriptionIdAreaCircleProcess;
 import org.apache.http.HttpHeaders;
@@ -19,14 +16,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class GetSubscriptionIdDistanceProcess {
-    final static protected Logger logger = LoggerFactory.getLogger(GetSubscriptionIdAreaCircleProcess.class);
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    final static protected Logger logger = LoggerFactory.getLogger(GetSubscriptionIdDistanceProcess.class);
+    private final CloseableHttpClient httpClient;
+    private final String baseUrl;
 
     public GetSubscriptionIdDistanceProcess(String baseUrl) {
         this.httpClient = HttpClients.custom().build();
-        this.objectMapper = new ObjectMapper();
         this.baseUrl = baseUrl;
     }
 
@@ -91,7 +86,7 @@ public class GetSubscriptionIdDistanceProcess {
     public static void main(String[] args) {
         //https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2";
-        String subscriptionId = "4";
+        String subscriptionId = "1";
         GetSubscriptionIdDistanceProcess subscriptionIdProcess = new GetSubscriptionIdDistanceProcess(baseUrl);
         subscriptionIdProcess.GetSubscriptionInfo(subscriptionId);
     }

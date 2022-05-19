@@ -123,7 +123,7 @@ public class PutZonalTrafficSubscriptionProcess {
         zonalTrafficSubscription.setResourceURL(String.format("http://[hostIP]/sbox-xyz123/location/v2/subscriptions/zonalTraffic/%s",subscriptionId));
 
         CallbackReference callbackReference = new CallbackReference();
-        callbackReference.setNotifyURL("http://my.callback.com/location-zonal-traffic/some-id");
+        callbackReference.setNotifyURL("http://79ee-62-211-88-203.eu.ngrok.io/location/zonalTraffic/002");
         zonalTrafficSubscription.setCallbackReference(callbackReference);
 
         zonalTrafficSubscription.setZoneId("zone02");

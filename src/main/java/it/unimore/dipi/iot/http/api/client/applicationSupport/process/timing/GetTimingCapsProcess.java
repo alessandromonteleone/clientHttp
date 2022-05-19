@@ -1,6 +1,5 @@
 package it.unimore.dipi.iot.http.api.client.applicationSupport.process.timing;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.applicationSupport.model.TimeStamp;
@@ -16,18 +15,14 @@ import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-
 public class GetTimingCapsProcess {
     final static protected Logger logger = LoggerFactory.getLogger(GetTimingCapsProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final String baseUrl;
 
     public GetTimingCapsProcess(String baseUrl) {
         this.baseUrl = baseUrl;
-        this.objectMapper = new ObjectMapper();
         this.httpClient = HttpClients.custom().build();
     }
 
@@ -41,7 +36,7 @@ public class GetTimingCapsProcess {
             // URI Builder with Parameters
             URIBuilder builder = new URIBuilder(targetUrl);
 
-            logger.info("URI: {}", builder.toString());
+            logger.info("URI: {}", builder);
 
             //Create the HTTP GET Request
             HttpGet getTimingRequest = new HttpGet(builder.build());

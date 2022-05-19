@@ -1,7 +1,5 @@
 package it.unimore.dipi.iot.http.api.client.WLAN.process;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -17,15 +15,13 @@ import java.util.Optional;
 
 public class DeleteSubscriptionProcess {
 
-    final static protected Logger logger = LoggerFactory.getLogger(PostSubscriptionProcess.class);
+    final static protected Logger logger = LoggerFactory.getLogger(DeleteSubscriptionProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final String baseUrl;
 
     public DeleteSubscriptionProcess(String baseUrl) {
         this.baseUrl = baseUrl;
-        this.objectMapper = new ObjectMapper();
         this.httpClient = HttpClients.custom().build();
     }
 
@@ -81,7 +77,8 @@ public class DeleteSubscriptionProcess {
 
         logger.info("Starting IoT Inventory Location Create Tester ...");
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/wai/v2";
-        String subscriptionId = "sub-pMfWRBXydlsR-EIJ"; //si trova nell' href delle response del post subscription
+        //find it in href in Post subscription response
+        String subscriptionId = "sub-EzYzskzGM8GxyvEF";
         DeleteSubscriptionProcess deleteSubscriptionProcess = new DeleteSubscriptionProcess(baseUrl);
         deleteSubscriptionProcess.DeleteSubscription(subscriptionId);
 

@@ -105,7 +105,7 @@ import java.util.Optional;
 
             logger.info("Starting Tester ...");
             String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2";
-            String subscriptionId = "2";
+            String subscriptionId = "1";
 
             //process
             PutZoneStatusSubscriptionProcess zoneStatusSubscriptionProcess = new PutZoneStatusSubscriptionProcess(baseUrl);
@@ -113,7 +113,7 @@ import java.util.Optional;
             ZoneStatusSubscription zoneStatusSubscription = new ZoneStatusSubscription();
 
             CallbackReference callbackReference = new CallbackReference();
-            callbackReference.setNotifyURL("http://my.callback.com/location-zonal-status/some-id");
+            callbackReference.setNotifyURL("http://79ee-62-211-88-203.eu.ngrok.io/location/zoneStatus/0123");
             zoneStatusSubscription.setCallbackReference(callbackReference);
 
             zoneStatusSubscription.setClientCorrelator("0123");

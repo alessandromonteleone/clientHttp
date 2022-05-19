@@ -58,7 +58,7 @@ public class PutUsersTrackingSubscriptionProcess {
             CloseableHttpResponse response = httpClient.execute(createRequest);
 
 
-            //La sandbox Risponde con 200 "ok"
+            //200 "ok"
             if (response != null && response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
                 //Obtain response body as a String
                 String bodyString = EntityUtils.toString(response.getEntity());
@@ -131,7 +131,7 @@ public class PutUsersTrackingSubscriptionProcess {
         userTrackingSubscription.setResourceURL("http://[hostIP]/sbox-xyz123/location/v2/subscriptions/userTracking/4");
 
         CallbackReference callbackReference = new CallbackReference();
-        callbackReference.setNotifyURL("http://my.callback.com/location-user-tracking/some-id");
+        callbackReference.setNotifyURL("http://79ee-62-211-88-203.eu.ngrok.io/location/userTracking/0123");
 
         userTrackingSubscription.setCallbackReference(callbackReference);
 

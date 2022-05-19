@@ -27,10 +27,10 @@ public class PostSubscriptionDistanceProcess {
 
     final static protected Logger logger = LoggerFactory.getLogger(PostSubscriptionDistanceProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
-    private Gson gson;
+    private final CloseableHttpClient httpClient;
+    private final ObjectMapper objectMapper;
+    private final String baseUrl;
+
     public PostSubscriptionDistanceProcess(String baseUrl) {
         this.baseUrl = baseUrl;
         this.objectMapper = new ObjectMapper();
@@ -68,7 +68,6 @@ public class PostSubscriptionDistanceProcess {
                 //String Header = Arrays.stream(response.getHeaders("http")).findFirst().get().getValue();
 
                 //2)
-                //soluzione 2
                 String Header = "";
                 Optional<org.apache.http.Header> opt1 =  Arrays.stream(response.getHeaders("http")).findFirst() ;
                 if (opt1.isPresent()) {
@@ -81,7 +80,7 @@ public class PostSubscriptionDistanceProcess {
                 logger.info("Raw Response Body: {}", bodyString);
 
                 //create response gson
-                gson = new GsonBuilder().create();
+                Gson gson = new GsonBuilder().create();
                 PostSubscriptionDistanceResponseDescriptor subscriptionDistanceResponse =
                         gson.fromJson(bodyString, PostSubscriptionDistanceResponseDescriptor.class);
 
@@ -130,7 +129,7 @@ public class PostSubscriptionDistanceProcess {
 
         CallbackReference callbackReference = new CallbackReference();
         callbackReference.setCallbackData("1234");
-        callbackReference.setNotifyURL("http://my.callback.com/location-area-circle/some-id");
+        callbackReference.setNotifyURL("http://79ee-62-211-88-203.eu.ngrok.io/location/distance");
 
         distanceNotificationSubscription.setCallbackReference(callbackReference);
 
@@ -144,7 +143,7 @@ public class PostSubscriptionDistanceProcess {
 
         distanceNotificationSubscription.setCheckImmediate(true);
 
-        distanceNotificationSubscription.setCriteria("AllWithinDistance");
+        distanceNotificationSubscription.setCriteria("AnyWithinDistance");
 
         distanceNotificationSubscription.setDistance(100);
 

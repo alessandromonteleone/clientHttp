@@ -85,10 +85,10 @@ public class PostConfirmTerminationProcess {
 
     public static void main(String[] args) {
 
-        logger.info("Starting IoT Inventory Location Create Tester ...");
+        logger.info("Starting Tester ...");
 
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/mec_app_support/v1";
-        String appIstanceId = "edc8c240-75a9-4169-ab3a-60993ee7d90a";
+        String appIstanceId = "7f17685b-e01f-474e-b945-ba736c598a1d";
 
         PostConfirmTerminationProcess confirmTerminationProcess = new PostConfirmTerminationProcess(baseUrl);
 

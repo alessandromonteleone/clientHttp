@@ -1,6 +1,5 @@
 package it.unimore.dipi.iot.http.api.client.radioNetwork.process.queries;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.radioNetwork.model.AssociateId;
@@ -8,7 +7,6 @@ import it.unimore.dipi.iot.http.api.client.radioNetwork.model.CellUserInfo;
 import it.unimore.dipi.iot.http.api.client.radioNetwork.model.ErabInfo;
 import it.unimore.dipi.iot.http.api.client.radioNetwork.model.UeInfo;
 import it.unimore.dipi.iot.http.api.client.radioNetwork.model.response.GetRabInfoResponseDescriptor;
-import it.unimore.dipi.iot.http.api.client.serviceManagement.process.GetTransportsProcess;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -31,10 +29,8 @@ public class GetRabInfoProcess {
 
     public GetRabInfoProcess(String baseUrl) {
         this.baseUrl = baseUrl;
-        ObjectMapper objectMapper = new ObjectMapper();
         this.httpClient = HttpClients.custom().build();
     }
-
 
     public void getAllRabInfo() {
 
@@ -197,14 +193,11 @@ public class GetRabInfoProcess {
 }
 
 
-
     public static void main(String[] args) {
 
         String baseURL = "https://try-mec.etsi.org/sbx1hio0m7/mep1/rni/v2";
 
         GetRabInfoProcess rabInfoProcess = new GetRabInfoProcess(baseURL);
-
-
 
         String appInsId = "298b2c0c-7efa-45d3-8b47-8ab3c009b845";
 
@@ -222,7 +215,6 @@ public class GetRabInfoProcess {
 
         //GET /queries/rab_info         queries
         rabInfoProcess.getQueryRabInfo(appInsId,cellIdList,null,null,null);
-
 
     }
 }

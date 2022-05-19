@@ -120,7 +120,7 @@ public class PostApplicationsSubscriptionProcess {
 
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/mec_service_mgmt/v1";
 
-        String appInstanceId = "a6735c89-9041-4fac-a9d5-d28c7b81cc7d";
+        String appInstanceId = "e486e1c1-2c28-498c-b216-6e624b031c55";
 
         PostApplicationsSubscriptionProcess subscriptionProcess = new PostApplicationsSubscriptionProcess(baseUrl);
 
@@ -130,7 +130,7 @@ public class PostApplicationsSubscriptionProcess {
         //Shall be set to SerAvailabilityNotificationSubscription
         subscriptionDescriptor.setSubscriptionType("SerAvailabilityNotificationSubscription");
 
-        subscriptionDescriptor.setCallbackReference("http://my.callback.com/mec_service_mgmt_ser_availabilities/some-id");
+        subscriptionDescriptor.setCallbackReference("http://52a1-62-211-88-203.eu.ngrok.io/support_management/v1/services/subscriptions/001");
 
         FilteringCriteria filteringCriteria = new FilteringCriteria();
 

@@ -418,7 +418,7 @@ public class GetServicesProcess {
 
         //"get /service" to get them or they are in response of Post .../services
         ArrayList<String> serInstanceId = new ArrayList<>() {{
-            add("53647bc8-1c20-407d-a508-1dc1ebc61a99");
+            add("55a2dc2e-149a-4c24-9b5b-c77942c3a1f8");
             add("573ecc2f-1ef1-4aa3-8b91-99644716e328");
             add("7a8c1416-cf0d-4f9d-8f32-1df9fb4c8add");
         }};
@@ -433,7 +433,7 @@ public class GetServicesProcess {
         Boolean consumedLocalOnly = null;
         Boolean isLocal = null;
         String scopeOfLocality = null;
-        String serCategoryId = "rniId"; // WAI, locationId
+        String serCategoryId = "AMSI"; // WAI, locationId, AMSI ...
 
         ///services
         servicesProcess.getAllServices(consumedLocalOnly, isLocal, scopeOfLocality);

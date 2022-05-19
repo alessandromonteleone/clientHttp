@@ -18,9 +18,9 @@ import java.util.Scanner;
 public class GetZonesProcess {
     final static protected Logger logger = LoggerFactory.getLogger(GetZonesProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final ObjectMapper objectMapper;
+    private final String baseUrl;
 
     public GetZonesProcess(String baseUrl){
         this.baseUrl = baseUrl; //https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2
@@ -245,7 +245,7 @@ public class GetZonesProcess {
 
     public static void main(String[] args) {
         logger.info("Starting IoT Inventory GET Tester ...");
-        String zoneId=null;
+        String zoneId;
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2";
         String s = "1";
         while (! s.equals("0")) {
@@ -263,36 +263,35 @@ public class GetZonesProcess {
 
             GetZonesProcess apiLocationProcess = new GetZonesProcess(baseUrl);
             switch (s) {
-                case "1":  // lista zone con info
+                case "1" -> {  // lista zone con info
                     System.out.println("--------- GET ZONES LIST ----------");
                     apiLocationProcess.getZonesList();
-                    break;
-                case "2": // info di una zona specificata
+                }
+                case "2" -> { // info di una zona specificata
                     System.out.println("ZoneId (zone01, zone02, zone03, zone04 ) : ");
                     tastiera = new Scanner(System.in);
                     zoneId = tastiera.nextLine();
                     System.out.printf("--------- GET %s INFO ----------\n", zoneId);
                     apiLocationProcess.getZone(zoneId);
-                    break;
-                case "3": // lista con info degli accessPoint in una zona specificata
+                }
+                case "3" -> { // lista con info degli accessPoint in una zona specificata
                     System.out.println("ZoneId (zone01, zone02, zone03, zone04 ): ");
                     tastiera = new Scanner(System.in);
                     zoneId = tastiera.nextLine();
                     System.out.printf("--------- GET %s INFO ----------\n", zoneId);
                     apiLocationProcess.getZoneAccessPointList(zoneId);
-                    break;
-                case "4": // info di un accessPoint specificato in una zona specificata
+                }
+                case "4" -> { // info di un accessPoint specificato in una zona specificata
                     System.out.println("ZoneId (zone01, zone02, zone03, zone04 ): ");
                     tastiera = new Scanner(System.in);  //es: zone01
-                    zoneId= tastiera.nextLine();
+                    zoneId = tastiera.nextLine();
                     System.out.println("Access point id: ");
                     tastiera = new Scanner(System.in);  //es: wifi-ap-2
                     String accessPointId = tastiera.nextLine();
-                    System.out.printf("--------- GET %s ACCESS POINT %s INFO ----------\n", zoneId,accessPointId);
-                    apiLocationProcess.getZoneAccessPoint(zoneId,accessPointId);
-                    break;
-                case "0":
-                    System.out.println("exit");
+                    System.out.printf("--------- GET %s ACCESS POINT %s INFO ----------\n", zoneId, accessPointId);
+                    apiLocationProcess.getZoneAccessPoint(zoneId, accessPointId);
+                }
+                case "0" -> System.out.println("exit");
             }
         }
     }

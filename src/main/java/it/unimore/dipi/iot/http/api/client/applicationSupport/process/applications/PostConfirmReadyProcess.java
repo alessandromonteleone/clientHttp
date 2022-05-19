@@ -84,10 +84,11 @@ public class PostConfirmReadyProcess {
 
     public static void main(String[] args) {
 
-        logger.info("Starting IoT Inventory Location Create Tester ...");
+        logger.info("Starting Tester ...");
 
+        //mep1 or mep2
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/mec_app_support/v1";
-        String appIstanceId = "a6735c89-9041-4fac-a9d5-d28c7b81cc7d";
+        String appIstanceId = "fba76408-b3a9-44b2-bedc-c99c5465d52f";
 
         PostConfirmReadyProcess confirmReadyProcess = new PostConfirmReadyProcess(baseUrl);
 

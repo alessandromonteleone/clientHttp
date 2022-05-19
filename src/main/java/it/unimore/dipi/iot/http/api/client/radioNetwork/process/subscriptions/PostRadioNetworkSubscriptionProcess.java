@@ -130,7 +130,7 @@ public class PostRadioNetworkSubscriptionProcess {
 
 
         requestDescriptor.setSubscriptionType("CellChangeSubscription");
-        requestDescriptor.setCallbackReference("http://my.callback.com/rni-cell-change/some-id");
+        requestDescriptor.setCallbackReference("http://bc42-79-32-252-29.eu.ngrok.io/rni/v2/subscriptions/001");
 
         FilterCriteriaAssocHo filterCriteriaAssocHo = new FilterCriteriaAssocHo();
 

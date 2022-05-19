@@ -1,6 +1,5 @@
 package it.unimore.dipi.iot.http.api.client.location.process.areaCircle;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import it.unimore.dipi.iot.http.api.client.WLAN.process.PostSubscriptionProcess;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
@@ -17,15 +16,13 @@ import java.util.Optional;
 
 public class DeleteSubscriptionAreaCircleProcess {
 
-    final static protected Logger logger = LoggerFactory.getLogger(PostSubscriptionProcess.class);
+    final static protected Logger logger = LoggerFactory.getLogger(DeleteSubscriptionAreaCircleProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final String baseUrl;
 
     public DeleteSubscriptionAreaCircleProcess(String baseUrl) {
         this.baseUrl = baseUrl;
-        this.objectMapper = new ObjectMapper();
         this.httpClient = HttpClients.custom().build();
     }
 
@@ -33,8 +30,8 @@ public class DeleteSubscriptionAreaCircleProcess {
 
         try {
 
-            //https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2
-            ///subscriptions/area/circle/1
+            //BaseUrl:      https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2
+            //              /subscriptions/area/circle/1
             String targetUrl = String.format("%s/subscriptions/area/circle/%s", this.baseUrl, subscriptionId);
             logger.info("Target Url: {}", targetUrl);
 
@@ -52,8 +49,8 @@ public class DeleteSubscriptionAreaCircleProcess {
 
 
             if (response != null && response.getStatusLine().getStatusCode() == HttpStatus.SC_NO_CONTENT) {
-                //Extract the Header
 
+                //Extract the Header
                 //String Header = Arrays.stream(response.getHeaders("http")).findFirst().get().getValue();
 
                 String Header = "";
@@ -62,7 +59,6 @@ public class DeleteSubscriptionAreaCircleProcess {
                     Header = opt1.get().getValue();
                 }
 
-                //System.out.println(response);
                 logger.info("Response Code: {}", response.getStatusLine().getStatusCode());
                 logger.info("Response Location Header: {}", Header);
 
@@ -82,7 +78,8 @@ public class DeleteSubscriptionAreaCircleProcess {
 
         logger.info("Starting IoT Inventory Location Create Tester ...");
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2";
-        String subscriptionId = "1"; // si trova in resourceURL nella riposta alla post
+        //find it in resourceURL in response of Post subscription
+        String subscriptionId = "1";
         DeleteSubscriptionAreaCircleProcess deleteSubscriptionProcess = new DeleteSubscriptionAreaCircleProcess(baseUrl);
         deleteSubscriptionProcess.DeleteSubscription(subscriptionId);
     }

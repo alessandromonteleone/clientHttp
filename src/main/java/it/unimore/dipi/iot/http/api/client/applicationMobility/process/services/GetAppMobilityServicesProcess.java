@@ -271,7 +271,7 @@ public class GetAppMobilityServicesProcess {
 
         String exclude_default = null;
 
-        String appMobilityServiceId = "5j42-NNNkcjNSbjG";
+        String appMobilityServiceId = "2sL0Wx54dTlDmTSY";
 
         // GET .../app_mobility_services
         appMobilityServicesProcess.getAllServices();

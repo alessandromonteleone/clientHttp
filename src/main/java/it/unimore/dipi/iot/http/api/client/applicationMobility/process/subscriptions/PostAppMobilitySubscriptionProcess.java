@@ -110,7 +110,7 @@ public class PostAppMobilitySubscriptionProcess {
 
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/amsi/v1";
 
-        String appInstanceId = "6c75a9b3-9c95-4039-8d0a-29666fe420d4";
+        String appInstanceId = "68a2d065-5a6d-40f3-8695-f5d497b6e51f";
 
         PostAppMobilitySubscriptionProcess appMobilitySubscriptionProcess = new PostAppMobilitySubscriptionProcess(baseUrl);
 
@@ -119,14 +119,14 @@ public class PostAppMobilitySubscriptionProcess {
         AppMobilitySubscriptionDescriptor requestDescriptor = new AppMobilitySubscriptionDescriptor();
 
         requestDescriptor.setSubscriptionType("MobilityProcedureSubscription");
-        requestDescriptor.setCallbackReference("http://my.callback.com/amsi-mobility-procedure/some-id");
+        requestDescriptor.setCallbackReference("http://52a1-62-211-88-203.eu.ngrok.io/application_mobility/amsi/v1/amsi-mobility-procedure/TEST01");
 
         FilterCriteria filterCriteria = new FilterCriteria();
         filterCriteria.setAppInstanceId(appInstanceId);
 
         AssociateId associateId = new AssociateId();
         associateId.setType(1);
-        associateId.setValue("10.100.0.1");
+        associateId.setValue("10.100.0.3");
 
         List<AssociateId> associateIdList = new ArrayList<>();
         associateIdList.add(associateId);

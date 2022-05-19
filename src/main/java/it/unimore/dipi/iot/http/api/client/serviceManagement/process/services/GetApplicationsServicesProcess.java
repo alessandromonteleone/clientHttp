@@ -1,6 +1,5 @@
 package it.unimore.dipi.iot.http.api.client.serviceManagement.process.services;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.serviceManagement.model.ServicesDescriptor;
@@ -21,13 +20,11 @@ public class GetApplicationsServicesProcess {
     final static protected Logger logger = LoggerFactory.getLogger(GetApplicationsServicesProcess.class);
 
     private final CloseableHttpClient httpClient;
-    private final ObjectMapper objectMapper;
     private final String baseUrl;
     private Gson gson;
 
     public GetApplicationsServicesProcess(String baseUrl) {
         this.baseUrl = baseUrl;
-        this.objectMapper = new ObjectMapper();
         this.httpClient = HttpClients.custom().build();
     }
 
@@ -415,12 +412,12 @@ public class GetApplicationsServicesProcess {
     }
 
     public static void main(String[] args) {
-        logger.info("Starting IoT Inventory GET Tester ...");
+        logger.info("Starting Tester ...");
 
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/mec_service_mgmt/v1";
 
         ArrayList<String> serInstanceId = new ArrayList<>() {{
-            add("573ecc2f-1ef1-4aa3-8b91-99644716e328");
+            add("55a2dc2e-149a-4c24-9b5b-c77942c3a1f8");
             add("d9242430-4f9f-49c7-aca4-76e26dbbe99b");
             //add("5243c784-0f40-4487-854e-949cb1a6722d");
         }};
@@ -436,7 +433,7 @@ public class GetApplicationsServicesProcess {
         Boolean isLocal = null;
         String scopeOfLocality = null;
         String serCategoryId = "locationId";
-        String appInstanceId = "298b2c0c-7efa-45d3-8b47-8ab3c009b845";
+        String appInstanceId = "d1dd85e4-edb4-4726-b7d1-bb079ded1d32";
 
 
         ///applications/{appInstanceId}/services

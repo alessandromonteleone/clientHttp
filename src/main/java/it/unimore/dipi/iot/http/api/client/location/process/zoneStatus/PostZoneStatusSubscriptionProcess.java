@@ -1,7 +1,6 @@
 package it.unimore.dipi.iot.http.api.client.location.process.zoneStatus;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.location.model.CallbackReference;
@@ -28,18 +27,16 @@ import java.util.Optional;
         final static protected Logger logger = LoggerFactory.getLogger(PostZoneStatusSubscriptionProcess.class);
 
         private final CloseableHttpClient httpClient;
-        private final ObjectMapper objectMapper;
         private final String baseUrl;
 
         public PostZoneStatusSubscriptionProcess(String baseUrl) {
             this.baseUrl = baseUrl;
-            this.objectMapper = new ObjectMapper();
             this.httpClient = HttpClients.custom().build();
         }
 
         public void CreateZoneStatusSubscription(ZoneStatusSubscriptionDescriptor requestDescriptor) {
             try {
-                //baseURL/subscriptions/zonalTraffic
+                //baseURL/subscriptions/zoneStatus
                 String targetUrl = String.format("%s/%s/%s", baseUrl, "subscriptions", "zoneStatus");
 
                 logger.info("Target Url: {}", targetUrl);
@@ -115,7 +112,7 @@ import java.util.Optional;
             ZoneStatusSubscription zoneStatusSubscription = new ZoneStatusSubscription();
 
             CallbackReference callbackReference = new CallbackReference();
-            callbackReference.setNotifyURL("http://my.callback.com/location-zonal-status/some-id");
+            callbackReference.setNotifyURL("http://79ee-62-211-88-203.eu.ngrok.io/location/zoneStatus/0123");
             zoneStatusSubscription.setCallbackReference(callbackReference);
 
             zoneStatusSubscription.setClientCorrelator("0123");

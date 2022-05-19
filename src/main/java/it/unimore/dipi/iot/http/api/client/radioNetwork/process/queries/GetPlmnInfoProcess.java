@@ -1,11 +1,9 @@
 package it.unimore.dipi.iot.http.api.client.radioNetwork.process.queries;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.radioNetwork.model.Plmn;
 import it.unimore.dipi.iot.http.api.client.radioNetwork.model.response.GetPlmnInfoResponseDescriptor;
-import it.unimore.dipi.iot.http.api.client.radioNetwork.model.response.GetRabInfoResponseDescriptor;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -28,7 +26,6 @@ public class GetPlmnInfoProcess {
 
     public GetPlmnInfoProcess(String baseUrl) {
         this.baseUrl = baseUrl;
-        ObjectMapper objectMapper = new ObjectMapper();
         this.httpClient = HttpClients.custom().build();
     }
 

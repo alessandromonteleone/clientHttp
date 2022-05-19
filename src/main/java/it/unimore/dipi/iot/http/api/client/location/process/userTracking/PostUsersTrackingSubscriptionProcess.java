@@ -4,13 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.location.model.CallbackReference;
-import it.unimore.dipi.iot.http.api.client.location.model.Link;
-import it.unimore.dipi.iot.http.api.client.location.model.PeriodicNotificationSubscription;
 import it.unimore.dipi.iot.http.api.client.location.model.UserTrackingSubscription;
-import it.unimore.dipi.iot.http.api.client.location.model.request.periodic.PeriodicRequestDescriptor;
 import it.unimore.dipi.iot.http.api.client.location.model.request.usersTracking.UserTrackingRequestDescriptor;
-import it.unimore.dipi.iot.http.api.client.location.process.periodic.PostPeriodicSubscriptionProcess;
-import org.apache.http.Header;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -31,10 +26,10 @@ public class PostUsersTrackingSubscriptionProcess {
 
     final static protected Logger logger = LoggerFactory.getLogger(PostUsersTrackingSubscriptionProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
-    private Gson gson;
+    private final CloseableHttpClient httpClient;
+    private final ObjectMapper objectMapper;
+    private final String baseUrl;
+
     public PostUsersTrackingSubscriptionProcess(String baseUrl) {
         this.baseUrl = baseUrl;
         this.objectMapper = new ObjectMapper();
@@ -85,7 +80,7 @@ public class PostUsersTrackingSubscriptionProcess {
                 logger.info("Raw Response Body: {}", bodyString);
 
                 //create response gson
-                gson = new GsonBuilder().create();
+                Gson gson = new GsonBuilder().create();
                 UserTrackingRequestDescriptor userTrackingResponseDescriptor =
                         gson.fromJson(bodyString, UserTrackingRequestDescriptor.class);
 
@@ -127,7 +122,7 @@ public class PostUsersTrackingSubscriptionProcess {
         userTrackingSubscription.setClientCorrelator("0123");
 
         CallbackReference callbackReference = new CallbackReference();
-        callbackReference.setNotifyURL("http://my.callback.com/location-user-tracking/some-id");
+        callbackReference.setNotifyURL("http://79ee-62-211-88-203.eu.ngrok.io/location/userTracking/0123");
 
         userTrackingSubscription.setCallbackReference(callbackReference);
 

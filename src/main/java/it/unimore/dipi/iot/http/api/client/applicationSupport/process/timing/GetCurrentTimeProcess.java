@@ -1,11 +1,8 @@
 package it.unimore.dipi.iot.http.api.client.applicationSupport.process.timing;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import it.unimore.dipi.iot.http.api.client.applicationSupport.model.TimeStamp;
 import it.unimore.dipi.iot.http.api.client.applicationSupport.model.response.GetCurrentTimeResponseDescriptor;
-import it.unimore.dipi.iot.http.api.client.applicationSupport.model.response.GetTimingCapsResponseDescriptor;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -20,13 +17,11 @@ import org.slf4j.LoggerFactory;
 public class GetCurrentTimeProcess {
     final static protected Logger logger = LoggerFactory.getLogger(GetCurrentTimeProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final String baseUrl;
 
     public GetCurrentTimeProcess(String baseUrl) {
         this.baseUrl = baseUrl;
-        this.objectMapper = new ObjectMapper();
         this.httpClient = HttpClients.custom().build();
     }
 
@@ -40,7 +35,7 @@ public class GetCurrentTimeProcess {
             // URI Builder with Parameters
             URIBuilder builder = new URIBuilder(targetUrl);
 
-            logger.info("URI: {}", builder.toString());
+            logger.info("URI: {}", builder);
 
             //Create the HTTP GET Request
             HttpGet getTimingRequest = new HttpGet(builder.build());

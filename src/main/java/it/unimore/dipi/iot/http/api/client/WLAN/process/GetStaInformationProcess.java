@@ -15,11 +15,11 @@ import org.slf4j.LoggerFactory;
 
 public class GetStaInformationProcess {
 
-    final static protected Logger logger = LoggerFactory.getLogger(GetDistanceProcess.class);
+    final static protected Logger logger = LoggerFactory.getLogger(GetStaInformationProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final ObjectMapper objectMapper;
+    private final String baseUrl;
 
     public GetStaInformationProcess(String baseUrl) {
         this.baseUrl=baseUrl;
@@ -75,8 +75,9 @@ public class GetStaInformationProcess {
     public static void main(String[] args){
         // https://try-mec.etsi.org/sbx1hio0m7/mep1/wai/v2
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/wai/v2";
-
         GetStaInformationProcess staInformationProcess = new GetStaInformationProcess(baseUrl);
+
+        //GET .../ap/ap_information
         staInformationProcess.getStaInfo();
     }
 }

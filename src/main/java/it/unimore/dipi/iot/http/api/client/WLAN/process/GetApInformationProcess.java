@@ -15,9 +15,9 @@ import org.slf4j.LoggerFactory;
 public class GetApInformationProcess {
     final static protected Logger logger = LoggerFactory.getLogger(GetApInformationProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final ObjectMapper objectMapper;
+    private final String baseUrl;
 
     public GetApInformationProcess(String baseUrl) {
         this.baseUrl = baseUrl;

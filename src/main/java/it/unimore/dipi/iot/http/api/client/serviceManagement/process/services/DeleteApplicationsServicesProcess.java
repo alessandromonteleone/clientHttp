@@ -76,10 +76,10 @@ public class DeleteApplicationsServicesProcess {
 
         logger.info("Starting ...");
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/mec_service_mgmt/v1";
-        String appInstanceId = "a6735c89-9041-4fac-a9d5-d28c7b81cc7d";
+        String appInstanceId = "d1dd85e4-edb4-4726-b7d1-bb079ded1d32";
         //find it: "GET .../services" o  "GET .../applications/{appInstanceID}/services"
         //get it: "POST .../applications/{appInstanceID}/services
-        String serviceId = "4fae3465-92e6-40d9-a7da-07dc2e518559";
+        String serviceId = "55a2dc2e-149a-4c24-9b5b-c77942c3a1f8";
 
         DeleteApplicationsServicesProcess servicesProcess = new DeleteApplicationsServicesProcess(baseUrl);
 

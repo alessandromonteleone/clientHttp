@@ -76,7 +76,7 @@ import java.util.Optional;
 
             logger.info("Starting Tester ...");
             String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/amsi/v1";
-            String subscriptionId = "sub-f1MMuV9c1TlOW3Pa";
+            String subscriptionId = "sub-2GGweWBDoC8eEWhe";
 
             DeleteAppMobilitySubscriptionProcess deleteAppMobilityServicesProcess = new DeleteAppMobilitySubscriptionProcess(baseUrl);
 

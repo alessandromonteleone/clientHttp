@@ -1,15 +1,10 @@
 package it.unimore.dipi.iot.http.api.client.location.process.userTracking;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.location.model.CallbackReference;
-import it.unimore.dipi.iot.http.api.client.location.model.Link;
-import it.unimore.dipi.iot.http.api.client.location.model.PeriodicNotificationSubscription;
 import it.unimore.dipi.iot.http.api.client.location.model.UserTrackingSubscription;
-import it.unimore.dipi.iot.http.api.client.location.model.response.periodic.GetPeriodicSubscriptionIdResponseDescriptor;
 import it.unimore.dipi.iot.http.api.client.location.model.response.userTracking.GetUserTrackingSubscriptionIdResponseDescriptor;
-import it.unimore.dipi.iot.http.api.client.location.process.periodic.GetPeriodicSubscriptionIdProcess;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -22,19 +17,17 @@ import org.slf4j.LoggerFactory;
 
 public class GetUsersTrackingSubscriptionIdProcess {
     final static protected Logger logger = LoggerFactory.getLogger(GetUsersTrackingSubscriptionIdProcess.class);
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final String baseUrl;
 
     public GetUsersTrackingSubscriptionIdProcess(String baseUrl) {
         this.httpClient = HttpClients.custom().build();
-        this.objectMapper = new ObjectMapper();
         this.baseUrl = baseUrl;
     }
 
     public void GetSubscriptionInfo(String subscriptionId) {
         try {
-            ///location/v2/subscriptions/area/circle/1
+            ///location/v2/subscriptions/userTracking/1
             String targetUrl = String.format("%s/%s/%s", this.baseUrl, "subscriptions/userTracking", subscriptionId);
 
             //Create the HTTP GET Request
@@ -87,7 +80,7 @@ public class GetUsersTrackingSubscriptionIdProcess {
     public static void main(String[] args) {
         //https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2";
-        String subscriptionId = "3";
+        String subscriptionId = "1";
         GetUsersTrackingSubscriptionIdProcess subscriptionIdProcess = new GetUsersTrackingSubscriptionIdProcess(baseUrl);
         subscriptionIdProcess.GetSubscriptionInfo(subscriptionId);
     }

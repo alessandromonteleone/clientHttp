@@ -204,7 +204,7 @@ public class GetLayer2MeasProcess {
         cellIdList.add("6060606");
 
         ArrayList<String> ueAddressList = new ArrayList<>();
-        ueAddressList.add("10.100.0.2");
+        ueAddressList.add("10.100.0.1");
 
         //GET queries/layer2_meas
         layer2MeasProcess.getAllLayer2MeasInfo();

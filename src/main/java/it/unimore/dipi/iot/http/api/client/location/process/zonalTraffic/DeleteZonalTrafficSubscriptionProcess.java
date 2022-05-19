@@ -76,7 +76,7 @@ public class DeleteZonalTrafficSubscriptionProcess {
 
         logger.info("Starting IoT Inventory Location Create Tester ...");
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2";
-        String subscriptionId = "2";
+        String subscriptionId = "1";
 
         DeleteZonalTrafficSubscriptionProcess deleteZonalTrafficSubscriptionProcess = new DeleteZonalTrafficSubscriptionProcess(baseUrl);
         deleteZonalTrafficSubscriptionProcess.deleteSubscription(subscriptionId);

@@ -235,9 +235,10 @@ import org.slf4j.LoggerFactory;
 
             String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/amsi/v1";
 
-            String subscriptionId = "sub-v7Lk8fRcfOs5vDZv";
+            String subscriptionId = "sub-2GGweWBDoC8eEWhe";
 
-            //Permitted values: mobility_proc or adj_app_info
+            //Query parameter to filter on a specific subscription type
+            // Permitted values: mobility_proc or adj_app_info
             String subscriptionType = "mobility_proc";
 
             GetAppMobilitySubscriptionProcess subscriptionProcess = new GetAppMobilitySubscriptionProcess(baseUrl);

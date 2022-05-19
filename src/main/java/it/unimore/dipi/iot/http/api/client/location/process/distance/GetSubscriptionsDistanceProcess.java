@@ -1,9 +1,10 @@
 package it.unimore.dipi.iot.http.api.client.location.process.distance;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import it.unimore.dipi.iot.http.api.client.location.model.*;
+import it.unimore.dipi.iot.http.api.client.location.model.CallbackReference;
+import it.unimore.dipi.iot.http.api.client.location.model.DistanceNotificationSubscription;
+import it.unimore.dipi.iot.http.api.client.location.model.NotificationSubscriptionListDistance;
 import it.unimore.dipi.iot.http.api.client.location.model.response.distance.GetSubscriptionsDistanceResponseDescriptor;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
@@ -20,14 +21,12 @@ import java.util.List;
 public class GetSubscriptionsDistanceProcess {
     final static protected Logger logger = LoggerFactory.getLogger(GetSubscriptionsDistanceProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final String baseUrl;
 
     public GetSubscriptionsDistanceProcess(String baseUrl) {
-        this.baseUrl = baseUrl;
+
         this.baseUrl=baseUrl;
-        this.objectMapper = new ObjectMapper();
         this.httpClient = HttpClients.custom().build();
     }
     public void getSubscriptionsList() {
@@ -66,7 +65,8 @@ public class GetSubscriptionsDistanceProcess {
                         notificationSubscriptionList.getDistanceNotificationSubscriptionList();
 
                 if(distanceNotificationSubscriptionList!=null){
-                //print response
+                    //print response
+
                     int i = 0;
                     for (DistanceNotificationSubscription d : distanceNotificationSubscriptionList){
                         i=i+1;

@@ -26,10 +26,10 @@ import java.util.Optional;
 public class PostSubscriptionsAreaCircleProcess {
     final static protected Logger logger = LoggerFactory.getLogger(PostSubscriptionsAreaCircleProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
-    private Gson gson;
+    private final CloseableHttpClient httpClient;
+    private final ObjectMapper objectMapper;
+    private final String baseUrl;
+
     public PostSubscriptionsAreaCircleProcess(String baseUrl) {
         this.baseUrl = baseUrl;
         this.objectMapper = new ObjectMapper();
@@ -81,7 +81,7 @@ public class PostSubscriptionsAreaCircleProcess {
 
                 logger.info("Testing info response");
 
-                gson = new GsonBuilder().create();
+                Gson gson = new GsonBuilder().create();
                 PostSubscriptionAreaCircleResponseDescriptor responseDescriptor =
                         gson.fromJson(bodyString,PostSubscriptionAreaCircleResponseDescriptor.class);
 
@@ -116,13 +116,13 @@ public class PostSubscriptionsAreaCircleProcess {
     }
     public static void main(String[] args) {
 
-        logger.info("Starting IoT Inventory Location Create Tester ...");
+        logger.info("Starting Location Tester ...");
 
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2";
 
         CallbackReference callbackReference = new CallbackReference();
         callbackReference.setCallbackData("1234");
-        callbackReference.setNotifyURL("http://my.callback.com/location-area-circle/some-id");
+        callbackReference.setNotifyURL("http://79ee-62-211-88-203.eu.ngrok.io/location/areaCircle");
 
         CircleNotificationSubscription circleNotificationSubscription = new CircleNotificationSubscription();
         circleNotificationSubscription.setClientCorrelator("1234");
@@ -138,7 +138,7 @@ public class PostSubscriptionsAreaCircleProcess {
         circleNotificationSubscription.setCheckImmediate(true);
         circleNotificationSubscription.setEnteringLeavingCriteria("Entering"); //Entering Leaving
         circleNotificationSubscription.setFrequency(1);
-        circleNotificationSubscription.setLatitude(7.242999); //7.242999
+        circleNotificationSubscription.setLatitude(7.242999);
         circleNotificationSubscription.setLongitude(43.433359);
         circleNotificationSubscription.setRadius(300);
         circleNotificationSubscription.setTrackingAccuracy(10);

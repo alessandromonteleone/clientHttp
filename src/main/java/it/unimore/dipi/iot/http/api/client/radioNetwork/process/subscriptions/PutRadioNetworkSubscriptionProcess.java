@@ -1,10 +1,8 @@
 package it.unimore.dipi.iot.http.api.client.radioNetwork.process.subscriptions;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.radioNetwork.model.*;
-import it.unimore.dipi.iot.http.api.client.serviceManagement.process.services.PutApplicationsServicesProcess;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -22,15 +20,13 @@ import java.util.List;
 import java.util.Optional;
 
 public class PutRadioNetworkSubscriptionProcess {
-    final static protected Logger logger = LoggerFactory.getLogger(PutApplicationsServicesProcess.class);
+    final static protected Logger logger = LoggerFactory.getLogger(PutRadioNetworkSubscriptionProcess.class);
 
     private final CloseableHttpClient httpClient;
-    private final ObjectMapper objectMapper;
     private final String baseUrl;
 
     public PutRadioNetworkSubscriptionProcess(String baseUrl) {
         this.baseUrl = baseUrl;
-        this.objectMapper = new ObjectMapper();
         this.httpClient = HttpClients.custom().build();
     }
 
@@ -138,7 +134,7 @@ public class PutRadioNetworkSubscriptionProcess {
 
 
         requestDescriptor.setSubscriptionType("CellChangeSubscription");
-        requestDescriptor.setCallbackReference("http://my.callback.com/rni-cell-change/some-id");
+        requestDescriptor.setCallbackReference("http://bc42-79-32-252-29.eu.ngrok.io/rni/v2/subscriptions/001");
 
         FilterCriteriaAssocHo filterCriteriaAssocHo = new FilterCriteriaAssocHo();
 

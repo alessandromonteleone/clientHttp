@@ -7,14 +7,11 @@ import it.unimore.dipi.iot.http.api.client.WLAN.model.ApId;
 import it.unimore.dipi.iot.http.api.client.WLAN.model.Links;
 import it.unimore.dipi.iot.http.api.client.WLAN.model.NotificationEvent;
 import it.unimore.dipi.iot.http.api.client.WLAN.model.Self;
-import it.unimore.dipi.iot.http.api.client.WLAN.model.request.PostSubscriptionRequestDescriptor;
 import it.unimore.dipi.iot.http.api.client.WLAN.model.request.PutSubscriptionRequestDescriptor;
 import it.unimore.dipi.iot.http.api.client.WLAN.model.response.PostSubscriptionResponseDescriptor;
-import org.apache.http.Header;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -28,11 +25,11 @@ import java.util.Optional;
 
 public class PutSubscriptionProcess {
 
-    final static protected Logger logger = LoggerFactory.getLogger(PostSubscriptionProcess.class);
+    final static protected Logger logger = LoggerFactory.getLogger(PutSubscriptionProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final ObjectMapper objectMapper;
+    private final String baseUrl;
 
     public PutSubscriptionProcess(String baseUrl) {
         this.baseUrl = baseUrl;
@@ -109,9 +106,9 @@ public class PutSubscriptionProcess {
 
     public static void main(String[] args) {
 
-        logger.info("Starting IoT Inventory Location Create Tester ...");
+        logger.info("Starting Tester ...");
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/wai/v2";
-        String subscriptionId = "sub-EzYzskzGM8GxyvEF";
+        String subscriptionId = "sub-FTu-ySks_U130v-1";
 
         //process
         PutSubscriptionProcess subscriptionProcess = new PutSubscriptionProcess(baseUrl);
@@ -120,7 +117,7 @@ public class PutSubscriptionProcess {
         PutSubscriptionRequestDescriptor requestDescriptor = new PutSubscriptionRequestDescriptor();
 
         requestDescriptor.setSubscriptionType("AssocStaSubscription");
-        requestDescriptor.setCallbackReference("http://meAppClient.example.com/wai/v2/notifications/1");
+        requestDescriptor.setCallbackReference("http://bc42-79-32-252-29.eu.ngrok.io/wai/v2/notifications/001");
 
         Self self = new Self();
         self.setHref("http://meAppServer.example.com/wai/v2/subscriptions/sub-EzYzskzGM8GxyvEF");

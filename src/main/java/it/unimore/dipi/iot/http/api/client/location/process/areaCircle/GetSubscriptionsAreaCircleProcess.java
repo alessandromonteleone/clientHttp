@@ -1,6 +1,5 @@
 package it.unimore.dipi.iot.http.api.client.location.process.areaCircle;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.location.model.CircleNotificationSubscription;
@@ -21,14 +20,12 @@ public class GetSubscriptionsAreaCircleProcess {
 
     final static protected Logger logger = LoggerFactory.getLogger(GetDistanceProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final String baseUrl;
 
     public GetSubscriptionsAreaCircleProcess(String baseUrl) {
-        this.baseUrl = baseUrl;
+
         this.baseUrl=baseUrl;
-        this.objectMapper = new ObjectMapper();
         this.httpClient = HttpClients.custom().build();
     }
     public void getSubscriptionsList(){

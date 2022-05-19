@@ -128,11 +128,11 @@ public class PutApplicationsServicesProcess {
 
     public static void main(String[] args){
 
-        logger.info("Starting IoT Inventory Location Create Tester ...");
+        logger.info("Starting Tester ...");
 
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/mec_service_mgmt/v1";
-        String appInstanceId = "a6735c89-9041-4fac-a9d5-d28c7b81cc7d";
-        String serviceId = "acb48506-fac5-4ca8-b86f-7b7bacd27fba";
+        String appInstanceId = "d1dd85e4-edb4-4726-b7d1-bb079ded1d32";
+        String serviceId = "55a2dc2e-149a-4c24-9b5b-c77942c3a1f8";
 
         PutApplicationsServicesProcess servicesProcess = new PutApplicationsServicesProcess(baseUrl);
 

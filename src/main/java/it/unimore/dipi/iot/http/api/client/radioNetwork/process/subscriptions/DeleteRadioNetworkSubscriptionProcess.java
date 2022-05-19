@@ -79,7 +79,7 @@ public class DeleteRadioNetworkSubscriptionProcess {
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/rni/v2";
 
         //find it in href response of post subscription
-        String subscriptionId = "2";
+        String subscriptionId = "1";
 
         DeleteRadioNetworkSubscriptionProcess deleteSubscriptionProcess = new DeleteRadioNetworkSubscriptionProcess(baseUrl);
 

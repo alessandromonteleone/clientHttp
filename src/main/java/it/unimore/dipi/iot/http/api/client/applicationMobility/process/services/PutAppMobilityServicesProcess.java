@@ -112,11 +112,11 @@ public class PutAppMobilityServicesProcess  {
 
     public static void main(String[] args) {
 
-        logger.info("Starting IoT Inventory Location Create Tester ...");
+        logger.info("Starting Tester ...");
 
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/amsi/v1";
-        String appMobilityServiceId = "_OdQiZR9tiurnZBP";
-        String appInstanceId = "7426e03b-8584-497a-81f6-883207158a3d";
+        String appMobilityServiceId = "2sL0Wx54dTlDmTSY";
+        String appInstanceId = "68a2d065-5a6d-40f3-8695-f5d497b6e51f";
         PutAppMobilityServicesProcess appMobilityServicesProcess = new PutAppMobilityServicesProcess(baseUrl);
 
 

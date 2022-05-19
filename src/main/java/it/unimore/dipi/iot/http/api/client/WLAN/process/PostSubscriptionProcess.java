@@ -7,7 +7,6 @@ import it.unimore.dipi.iot.http.api.client.WLAN.model.ApId;
 import it.unimore.dipi.iot.http.api.client.WLAN.model.NotificationEvent;
 import it.unimore.dipi.iot.http.api.client.WLAN.model.request.PostSubscriptionRequestDescriptor;
 import it.unimore.dipi.iot.http.api.client.WLAN.model.response.PostSubscriptionResponseDescriptor;
-import it.unimore.dipi.iot.http.api.client.location.process.queries.GetDistanceProcess;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -24,11 +23,11 @@ import java.util.Optional;
 
 public class PostSubscriptionProcess {
 
-    final static protected Logger logger = LoggerFactory.getLogger(GetDistanceProcess.class);
+    final static protected Logger logger = LoggerFactory.getLogger(PostSubscriptionProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final ObjectMapper objectMapper;
+    private final String baseUrl;
 
     public PostSubscriptionProcess(String baseUrl) {
         this.baseUrl = baseUrl;
@@ -104,13 +103,13 @@ public class PostSubscriptionProcess {
     }
     public static void main(String[] args) {
 
-        logger.info("Starting IoT Inventory Location Create Tester ...");
+        logger.info("Starting  Tester ...");
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/wai/v2";
         PostSubscriptionProcess subscriptionProcess = new PostSubscriptionProcess(baseUrl);
 
         PostSubscriptionRequestDescriptor requestDescriptor = new PostSubscriptionRequestDescriptor();
         requestDescriptor.setSubscriptionType("AssocStaSubscription");
-        requestDescriptor.setCallbackReference("http://meAppClient.example.com/wai/v2/notifications/1");
+        requestDescriptor.setCallbackReference("http://bc42-79-32-252-29.eu.ngrok.io/wai/v2/notifications/001");
         ApId apId = new ApId();
         apId.setBssid("005C0A0A0A0A");
         requestDescriptor.setApId(apId);

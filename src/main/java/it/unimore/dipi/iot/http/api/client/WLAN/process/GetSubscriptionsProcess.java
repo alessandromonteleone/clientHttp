@@ -1,6 +1,5 @@
 package it.unimore.dipi.iot.http.api.client.WLAN.process;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.WLAN.model.Subscription;
@@ -18,15 +17,13 @@ import org.slf4j.LoggerFactory;
 
 public class GetSubscriptionsProcess {
 
-    final static protected Logger logger = LoggerFactory.getLogger(GetDistanceProcess.class);
+    final static protected Logger logger = LoggerFactory.getLogger(GetSubscriptionsProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final String baseUrl;
 
     public GetSubscriptionsProcess(String baseUrl) {
         this.httpClient = HttpClients.custom().build();
-        this.objectMapper = new ObjectMapper();
         this.baseUrl = baseUrl;
     }
 

@@ -134,22 +134,21 @@ public class PostApplicationsServicesProcess {
 
     public static void main(String[] args) {
 
-        logger.info("Starting IoT Inventory Location Create Tester ...");
+        logger.info("Starting Tester ...");
 
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/mec_service_mgmt/v1";
 
-        String appInstanceId = "a6735c89-9041-4fac-a9d5-d28c7b81cc7d";
-
+        String appInstanceId = "fba76408-b3a9-44b2-bedc-c99c5465d52f";
         PostApplicationsServicesProcess servicesProcess = new PostApplicationsServicesProcess(baseUrl);
 
         ServicesDescriptor requestDescriptor = new ServicesDescriptor();
 
-        requestDescriptor.setSerName("myRnis");
+        requestDescriptor.setSerName("test");
         SerCategory serCategory = new SerCategory();
 
         serCategory.setHref("catItem1");
         serCategory.setId("id12345");
-        serCategory.setName("RNI");
+        serCategory.setName("AMSI");
         serCategory.setVersion("v2");
         requestDescriptor.setSerCategory(serCategory);
 

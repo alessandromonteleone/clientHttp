@@ -140,7 +140,7 @@ public class GetZonalTrafficSubscriptionProcess {
     public static void main(String[] args){
 
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2";
-        String subscriptionId = "3";
+        String subscriptionId = "1";
 
         GetZonalTrafficSubscriptionProcess zonalTrafficSubscriptionProcess = new GetZonalTrafficSubscriptionProcess(baseUrl);
 

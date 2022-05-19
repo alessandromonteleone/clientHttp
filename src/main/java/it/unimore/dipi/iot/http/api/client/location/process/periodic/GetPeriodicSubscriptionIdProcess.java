@@ -1,16 +1,11 @@
 package it.unimore.dipi.iot.http.api.client.location.process.periodic;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.location.model.CallbackReference;
-import it.unimore.dipi.iot.http.api.client.location.model.DistanceNotificationSubscription;
 import it.unimore.dipi.iot.http.api.client.location.model.Link;
 import it.unimore.dipi.iot.http.api.client.location.model.PeriodicNotificationSubscription;
-import it.unimore.dipi.iot.http.api.client.location.model.response.distance.GetSubscriptionIdDistanceResponseDescriptor;
 import it.unimore.dipi.iot.http.api.client.location.model.response.periodic.GetPeriodicSubscriptionIdResponseDescriptor;
-import it.unimore.dipi.iot.http.api.client.location.process.areaCircle.GetSubscriptionIdAreaCircleProcess;
-import it.unimore.dipi.iot.http.api.client.location.process.distance.GetSubscriptionIdDistanceProcess;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -23,13 +18,11 @@ import org.slf4j.LoggerFactory;
 
 public class GetPeriodicSubscriptionIdProcess {
     final static protected Logger logger = LoggerFactory.getLogger(GetPeriodicSubscriptionIdProcess.class);
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final String baseUrl;
 
     public GetPeriodicSubscriptionIdProcess(String baseUrl) {
         this.httpClient = HttpClients.custom().build();
-        this.objectMapper = new ObjectMapper();
         this.baseUrl = baseUrl;
     }
 
@@ -94,11 +87,10 @@ public class GetPeriodicSubscriptionIdProcess {
     public static void main(String[] args) {
         //https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2";
-        String subscriptionId = "7";
+        String subscriptionId = "1";
         GetPeriodicSubscriptionIdProcess subscriptionIdProcess = new GetPeriodicSubscriptionIdProcess(baseUrl);
         subscriptionIdProcess.GetSubscriptionInfo(subscriptionId);
     }
-
 }
 
 

@@ -5,15 +5,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.WLAN.process.PostSubscriptionProcess;
 import it.unimore.dipi.iot.http.api.client.location.model.CallbackReference;
-import it.unimore.dipi.iot.http.api.client.location.model.DistanceNotificationSubscription;
 import it.unimore.dipi.iot.http.api.client.location.model.Link;
 import it.unimore.dipi.iot.http.api.client.location.model.PeriodicNotificationSubscription;
-import it.unimore.dipi.iot.http.api.client.location.model.request.distance.DistanceRequestDescriptor;
 import it.unimore.dipi.iot.http.api.client.location.model.request.periodic.PeriodicRequestDescriptor;
-import it.unimore.dipi.iot.http.api.client.location.model.response.distance.PostSubscriptionDistanceResponseDescriptor;
 import it.unimore.dipi.iot.http.api.client.location.model.response.periodic.GetPeriodicSubscriptionIdResponseDescriptor;
-import it.unimore.dipi.iot.http.api.client.location.process.distance.PutSubscriptionDistanceProcess;
-import org.apache.http.Header;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -33,9 +28,9 @@ import java.util.Optional;
 public class PutPeriodicSubscriptionProcess {
     final static protected Logger logger = LoggerFactory.getLogger(PostSubscriptionProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final ObjectMapper objectMapper;
+    private final String baseUrl;
 
     public PutPeriodicSubscriptionProcess(String baseUrl) {
         this.baseUrl = baseUrl;
@@ -129,7 +124,7 @@ public class PutPeriodicSubscriptionProcess {
 
         logger.info("Starting IoT Inventory Location Create Tester ...");
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/location/v2";
-        String subscriptionId = "2";
+        String subscriptionId = "1";
 
         //process
         PutPeriodicSubscriptionProcess subscriptionProcess = new PutPeriodicSubscriptionProcess(baseUrl);
@@ -145,7 +140,7 @@ public class PutPeriodicSubscriptionProcess {
 
         CallbackReference callbackReference = new CallbackReference();
         callbackReference.setCallbackData("1234");
-        callbackReference.setNotifyURL("http://my.callback.com/location-periodic/some-id");
+        callbackReference.setNotifyURL("http://79ee-62-211-88-203.eu.ngrok.io/location/periodic");
         callbackReference.setNotificationFormat("XML");
 
         periodicNotificationSubscription.setCallbackReference(callbackReference);
@@ -172,6 +167,6 @@ public class PutPeriodicSubscriptionProcess {
 
         periodicRequestDescriptor.setPeriodicNotificationSubscription(periodicNotificationSubscription);
 
-        subscriptionProcess.UpdateSubscription("2",periodicRequestDescriptor);
+        subscriptionProcess.UpdateSubscription(subscriptionId,periodicRequestDescriptor);
     }
 }

@@ -21,9 +21,9 @@ import java.util.Scanner;
 public class GetDistanceProcess {
     final static protected Logger logger = LoggerFactory.getLogger(GetDistanceProcess.class);
 
-    private CloseableHttpClient httpClient;
-    private ObjectMapper objectMapper;
-    private String baseUrl;
+    private final CloseableHttpClient httpClient;
+    private final ObjectMapper objectMapper;
+    private final String baseUrl;
 
     public GetDistanceProcess(String baseUrl) {
         this.baseUrl = baseUrl;
@@ -44,7 +44,7 @@ public class GetDistanceProcess {
             builder.addParameter("address", address.get(0))
                     .addParameter("address", address.get(1));
 
-            logger.info("URI: {}", builder.toString());
+            logger.info("URI: {}", builder);
 
             //Create the HTTP GET Request
             HttpGet getLocationListRequest = new HttpGet(builder.build());
@@ -110,7 +110,7 @@ public class GetDistanceProcess {
                     .addParameter("latitude", String.valueOf(latitude))
                     .addParameter("longitude", String.valueOf(longitude));
 
-            logger.info("URI: {}", builder.toString());
+            logger.info("URI: {}", builder);
 
             //Create the HTTP GET Request
             HttpGet getLocationListRequest = new HttpGet(builder.build());

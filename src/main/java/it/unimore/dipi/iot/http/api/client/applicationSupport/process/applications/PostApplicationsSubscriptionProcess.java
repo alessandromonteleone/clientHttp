@@ -107,16 +107,16 @@ public class PostApplicationsSubscriptionProcess {
 
     public static void main(String[] args) {
 
-        logger.info("Starting IoT Inventory Location Create Tester ...");
+        logger.info("Starting Tester ...");
 
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/mec_app_support/v1";
 
-        String appInstanceId = "2b3e30cb-4113-4ef6-9388-ef99247f5a34";
+        String appInstanceId = "9ca85893-2f48-4073-9f54-ab5e82327272";
 
         PostApplicationSubscriptionRequestDescriptor requestDescriptor = new PostApplicationSubscriptionRequestDescriptor();
 
         requestDescriptor.setSubscriptionType("AppTerminationNotificationSubscription");
-        requestDescriptor.setCallbackReference("https://232b-79-32-252-29.eu.ngrok.io/location-area-circle");
+        requestDescriptor.setCallbackReference("http://bc42-79-32-252-29.eu.ngrok.io/application_support/v1/applications/subscriptions/0001");
         requestDescriptor.setAppInstanceId(appInstanceId);
 
         PostApplicationsSubscriptionProcess subscriptionProcess = new PostApplicationsSubscriptionProcess(baseUrl);

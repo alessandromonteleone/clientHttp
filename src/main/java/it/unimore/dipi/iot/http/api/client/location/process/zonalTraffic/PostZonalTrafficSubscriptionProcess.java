@@ -115,7 +115,7 @@ public class PostZonalTrafficSubscriptionProcess {
         zonalTrafficSubscription.setClientCorrelator("0123");
 
         CallbackReference callbackReference = new CallbackReference();
-        callbackReference.setNotifyURL("http://my.callback.com/location-zonal-traffic/some-id");
+        callbackReference.setNotifyURL("http://79ee-62-211-88-203.eu.ngrok.io/location/zonalTraffic/0123");
         zonalTrafficSubscription.setCallbackReference(callbackReference);
 
         zonalTrafficSubscription.setZoneId("zone01");

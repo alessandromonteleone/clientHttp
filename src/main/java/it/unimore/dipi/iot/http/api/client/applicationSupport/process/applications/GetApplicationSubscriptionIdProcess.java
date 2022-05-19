@@ -1,6 +1,5 @@
 package it.unimore.dipi.iot.http.api.client.applicationSupport.process.applications;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimore.dipi.iot.http.api.client.applicationSupport.model.response.GetApplicationSubscriptionIdResponseDescriptor;
@@ -21,7 +20,6 @@ public class GetApplicationSubscriptionIdProcess {
 
     public GetApplicationSubscriptionIdProcess(String baseUrl) {
         this.httpClient = HttpClients.custom().build();
-        ObjectMapper objectMapper = new ObjectMapper();
         this.baseUrl = baseUrl;
     }
 
@@ -72,8 +70,8 @@ public class GetApplicationSubscriptionIdProcess {
     public static void main(String[] args) {
 
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/mec_app_support/v1";
-        String appInstanceid  = "b8a203be-ac81-45a6-8d88-fdb1f8f5393b";
-        String subscriptionId = "sub-aB98tlzb7JKRhCzY";
+        String appInstanceid  = "9ca85893-2f48-4073-9f54-ab5e82327272";
+        String subscriptionId = "sub-hV_xRHPGgTNrM2ep";
 
         GetApplicationSubscriptionIdProcess subscriptionIdProcess = new GetApplicationSubscriptionIdProcess(baseUrl);
         subscriptionIdProcess.GetSubscriptionInfo(appInstanceid,subscriptionId);
