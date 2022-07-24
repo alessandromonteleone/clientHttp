@@ -12,10 +12,10 @@ public class DeviceInformation {
     private AssociateId associateId;
     @SerializedName("appMobilityServiceLevel")
     @Expose
-    private Integer appMobilityServiceLevel;
+    private String appMobilityServiceLevel;
     @SerializedName("contextTransferState")
     @Expose
-    private Integer contextTransferState;
+    private String contextTransferState;
 
     public AssociateId getAssociateId() {
         return associateId;
@@ -25,19 +25,19 @@ public class DeviceInformation {
         this.associateId = associateId;
     }
 
-    public Integer getAppMobilityServiceLevel() {
+    public String getAppMobilityServiceLevel() {
         return appMobilityServiceLevel;
     }
 
-    public void setAppMobilityServiceLevel(Integer appMobilityServiceLevel) {
+    public void setAppMobilityServiceLevel(String appMobilityServiceLevel) {
         this.appMobilityServiceLevel = appMobilityServiceLevel;
     }
 
-    public Integer getContextTransferState() {
+    public String getContextTransferState() {
         return contextTransferState;
     }
 
-    public void setContextTransferState(Integer contextTransferState) {
+    public void setContextTransferState(String contextTransferState) {
         this.contextTransferState = contextTransferState;
     }
 

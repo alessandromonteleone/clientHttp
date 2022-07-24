@@ -90,7 +90,7 @@ import java.util.Optional;
                         System.out.println("        value: " + associateId.getValue());
                     }
                     System.out.println("\n    mobilityStatus: ");
-                    for (int mobilityStatus : responseDescriptor.getFilterCriteria().getMobilityStatus())
+                    for (String mobilityStatus : responseDescriptor.getFilterCriteria().getMobilityStatus())
                         System.out.println("        " + mobilityStatus);
                     System.out.println("subscriptionType: " + responseDescriptor.getSubscriptionType());
 
@@ -134,7 +134,7 @@ import java.util.Optional;
             filterCriteria.setAppInstanceId(appInstanceId);
 
             AssociateId associateId = new AssociateId();
-            associateId.setType(1);
+            associateId.setType("[\"UE_IPv4_ADDRESS\"]");
             associateId.setValue("10.100.0.1");
 
             List<AssociateId> associateIdList = new ArrayList<>();

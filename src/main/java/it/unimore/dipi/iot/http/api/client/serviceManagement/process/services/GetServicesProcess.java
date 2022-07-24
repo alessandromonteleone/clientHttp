@@ -32,7 +32,7 @@ public class GetServicesProcess {
     }
 
 
-    public void getAllServices(Boolean consumedLocalOnly, Boolean isLocal, String scopeOfLocality) {
+    public ServicesDescriptor[] getAllServices(Boolean consumedLocalOnly, Boolean isLocal, String scopeOfLocality) {
 
         try {
 
@@ -79,7 +79,7 @@ public class GetServicesProcess {
                         gson.fromJson(bodyString, ServicesDescriptor[].class);
 
                 printResponseDescriptor(responseDescriptorList);
-
+                return responseDescriptorList;
 
 
             } else {
@@ -91,6 +91,7 @@ public class GetServicesProcess {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     public void getSerInstanceId(ArrayList<String> serInstanceId, Boolean consumedLocalOnly, Boolean isLocal, String scopeOfLocality) {

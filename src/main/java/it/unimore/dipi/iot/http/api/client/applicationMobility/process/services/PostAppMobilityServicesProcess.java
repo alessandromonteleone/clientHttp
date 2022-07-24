@@ -126,15 +126,15 @@ public class PostAppMobilityServicesProcess {
 
         if (Objects.equals(s, "1")) {
             DeviceInformation deviceInformation = new DeviceInformation();
-            deviceInformation.setAppMobilityServiceLevel(3);
+            deviceInformation.setAppMobilityServiceLevel("[\"APP_MOBILITY_NOT_ALLOWED\"]");
             //
             AssociateId associateId = new AssociateId();
-            associateId.setType(1);
+            associateId.setType("[\"UE_IPv4_ADDRESS\"]");
             associateId.setValue("10.100.0.3");
 
             deviceInformation.setAssociateId(associateId);
 
-            deviceInformation.setContextTransferState(0);
+            deviceInformation.setContextTransferState("[\"NOT_TRANSFERRED\"]");
 
             List<DeviceInformation> deviceInformationList = new ArrayList<>();
             deviceInformationList.add(deviceInformation);
@@ -143,7 +143,7 @@ public class PostAppMobilityServicesProcess {
 
         //The MEC Application instance running on MEC Platform mep2 not provide device information.
         ServiceConsumerId serviceConsumerId = new ServiceConsumerId();
-        serviceConsumerId.setAppInstanceId("fba76408-b3a9-44b2-bedc-c99c5465d52f");
+        serviceConsumerId.setAppInstanceId("957e6faf-bac9-48de-aae9-6e4dd4a1d5ed");
         requestDescriptor.setServiceConsumerId(serviceConsumerId);
 
 

@@ -214,7 +214,7 @@ import org.slf4j.LoggerFactory;
                         System.out.println("        value: " + associateId.getValue());
                     }
                     System.out.println("\n    mobilityStatus: ");
-                    for (int mobilityStatus : responseDescriptor.getFilterCriteria().getMobilityStatus())
+                    for (String mobilityStatus : responseDescriptor.getFilterCriteria().getMobilityStatus())
                         System.out.println("        " + mobilityStatus);
                     System.out.println("subscriptionType: " + responseDescriptor.getSubscriptionType());
 

@@ -16,7 +16,8 @@ public class FilterCriteria {
     private List<AssociateId> associateId = null;
     @SerializedName("mobilityStatus")
     @Expose
-    private List<Integer> mobilityStatus = null;
+    private List<String> mobilityStatus = null;
+
 
     public String getAppInstanceId() {
         return appInstanceId;
@@ -34,11 +35,11 @@ public class FilterCriteria {
         this.associateId = associateId;
     }
 
-    public List<Integer> getMobilityStatus() {
+    public List<String> getMobilityStatus() {
         return mobilityStatus;
     }
 
-    public void setMobilityStatus(List<Integer> mobilityStatus) {
+    public void setMobilityStatus(List<String> mobilityStatus) {
         this.mobilityStatus = mobilityStatus;
     }
 

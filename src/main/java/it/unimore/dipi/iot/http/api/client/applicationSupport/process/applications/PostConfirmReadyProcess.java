@@ -1,6 +1,8 @@
 package it.unimore.dipi.iot.http.api.client.applicationSupport.process.applications;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+
 import it.unimore.dipi.iot.http.api.client.applicationSupport.model.request.PostConfirmReadyRequestDescriptor;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
@@ -88,7 +90,7 @@ public class PostConfirmReadyProcess {
 
         //mep1 or mep2
         String baseUrl = "https://try-mec.etsi.org/sbx1hio0m7/mep1/mec_app_support/v1";
-        String appIstanceId = "fba76408-b3a9-44b2-bedc-c99c5465d52f";
+        String appIstanceId = "0890de00-762d-42b7-bdbb-b5a256ab9261";
 
         PostConfirmReadyProcess confirmReadyProcess = new PostConfirmReadyProcess(baseUrl);
 

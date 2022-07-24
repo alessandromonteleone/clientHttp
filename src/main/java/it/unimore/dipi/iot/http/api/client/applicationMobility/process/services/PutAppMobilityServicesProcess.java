@@ -126,15 +126,15 @@ public class PutAppMobilityServicesProcess  {
         requestDescriptor.setAppMobilityServiceId(appMobilityServiceId);
 
         DeviceInformation deviceInformation = new DeviceInformation();
-        deviceInformation.setAppMobilityServiceLevel(3);
+        deviceInformation.setAppMobilityServiceLevel("[\"APP_MOBILITY_NOT_ALLOWED\"]");
 
         AssociateId associateId = new AssociateId();
-        associateId.setType(1);
+        associateId.setType("[\"UE_IPv4_ADDRESS\"]");
         associateId.setValue("10.100.0.1");
 
         deviceInformation.setAssociateId(associateId);
 
-        deviceInformation.setContextTransferState(0);
+        deviceInformation.setContextTransferState("[\"NOT_TRANSFERRED\"]");
 
         List<DeviceInformation> deviceInformationList = new ArrayList<>();
         deviceInformationList.add(deviceInformation);

@@ -129,7 +129,7 @@ public class PostSubscriptionDistanceProcess {
 
         CallbackReference callbackReference = new CallbackReference();
         callbackReference.setCallbackData("1234");
-        callbackReference.setNotifyURL("http://79ee-62-211-88-203.eu.ngrok.io/location/distance");
+        callbackReference.setNotifyURL("http://fb9c-80-88-166-133.eu.ngrok.io/location/distance");
 
         distanceNotificationSubscription.setCallbackReference(callbackReference);
 

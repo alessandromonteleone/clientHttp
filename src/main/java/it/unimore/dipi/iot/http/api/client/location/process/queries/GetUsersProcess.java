@@ -34,7 +34,7 @@ public class GetUsersProcess {
     }
 
     // UE Location Lookup of a specific UE or group of UEs
-    public void GetLocationLookup(ArrayList<String> zoneId, ArrayList<String> accessPointId, ArrayList<String> address) {
+    public UserList GetLocationLookup(ArrayList<String> zoneId, ArrayList<String> accessPointId, ArrayList<String> address) {
 
 
         try {
@@ -88,8 +88,8 @@ public class GetUsersProcess {
                 System.out.println("ResourceURL:" + userList.getResourceURL());
 
                 if(userList.getUser() != null) {
-                List<User> user = userList.getUser();
-                int i = 0;
+                    List<User> user = userList.getUser();
+                    int i = 0;
                     for (User u : user) {
                         i=i+1;
                         System.out.println("\u001B[32m"+"User number "+"\u001B[0m"+i);
@@ -112,12 +112,13 @@ public class GetUsersProcess {
                         System.out.println("Seconds: " + timeStamp.getSeconds());
                         System.out.println("ZoneId: " + u.getZoneId());
                     }
+
                 }else{
                     System.out.println("\u001B[31m"+"Empty UserList, No users found." + "\u001B[0m");
                 }
 
 
-
+            return userList;
             } else {
                 logger.error(String.format("Error executing the request ! Status Code: %d -> Response Body: %s",
                         response != null ? response.getStatusLine().getStatusCode() : -1,
@@ -127,6 +128,7 @@ public class GetUsersProcess {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 
 
@@ -137,21 +139,23 @@ public class GetUsersProcess {
         GetUsersProcess apiLocationProcess = new GetUsersProcess(baseUrl);
 
         ArrayList<String> zoneId = new ArrayList<>() {{
-            add("zone03");
+            //add("zone03");
         }};
 
         ArrayList<String> accessPointId = new ArrayList<>() {{
-            add("4g-macro-cell-6");
+            //add("4g-macro-cell-6");
             //add("wifi-ap-6");
         }};
 
         ArrayList<String> address = new ArrayList<>() {{
             //add("10.100.0.1");
-            //add("10.1.0.1");
+            add("10.1.0.1");
         }};
 
         //process
-        apiLocationProcess.GetLocationLookup(zoneId, accessPointId, address);
+        UserList userList = apiLocationProcess.GetLocationLookup(zoneId, accessPointId, address);
+        System.out.println(userList);
+
 
     }
 }
